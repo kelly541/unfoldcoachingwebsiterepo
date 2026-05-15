@@ -126,6 +126,24 @@
       color: var(--white) !important;
     }
 
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 101;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--ink);
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
     /* HERO */
     .hero {
       background: linear-gradient(to right, rgba(245, 237, 227, 0) 50%, rgba(245, 237, 227, 0.85) 85%, rgba(245, 237, 227, 0.98) 100%), url('photo.jpg') center/cover no-repeat;
@@ -138,6 +156,10 @@
       padding: 0;
       border-radius: 0;
       min-height: 600px;
+    }
+
+    .mobile-hero-photo-wrapper {
+      display: none;
     }
 
     .hero-intro {
@@ -972,34 +994,169 @@
     .cta-body { font-family: Arial, sans-serif; font-size: 16px; color: rgba(245, 237, 227, 0.75); max-width: 500px; margin: 0 auto 2.5rem; }
 
     /* FOOTER */
-    footer { background: #c8bdb0; color: var(--ink); padding: 1.5rem 2rem 1rem; margin-top: 2rem; border-radius: 40px 40px 0 0; }
-    .footer-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .footer-links-wrap { display: flex; gap: 4rem; margin-right: 6rem; }
-    .footer-logo { font-size: 26px; color: var(--terra); font-weight: 700; margin-bottom: 0.5rem; }
-    .footer-desc { font-family: Arial, sans-serif; font-size: 14px; color: rgba(44, 31, 20, 0.8); line-height: 1.6; }
+    footer { background: #c8bdb0; color: var(--ink); padding: 3rem 2rem 1.5rem; margin-top: 2rem; border-radius: 40px 40px 0 0; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+    .footer-brand { display: flex; align-items: center; gap: 2rem; max-width: 850px; }
+    .footer-logo-img { height: 160px; width: auto; display: block; flex-shrink: 0; }
+    .footer-desc { font-family: Arial, sans-serif; font-size: 14px; color: rgba(44, 31, 20, 0.8); line-height: 1.6; max-width: 480px; }
+    .footer-badges { display: flex; align-items: center; gap: 1.5rem; flex-shrink: 0; }
+    .footer-badges img { height: 100px; width: auto; display: block; opacity: 0.9; }
+    .footer-links-wrap { display: flex; gap: 4rem; margin-right: 2rem; }
     .footer-col h4 { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
     .footer-col ul { list-style: none; }
     .footer-col ul li a { font-family: Arial, sans-serif; font-size: 14px; color: var(--ink-light); text-decoration: none; line-height: 1.6; }
 
+    @media (max-width: 992px) {
+      nav { top: 10px; left: 1rem; right: 1rem; padding: 0 1.5rem; }
+      .nav-links {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 80%; max-width: 300px;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+        transition: 0.4s ease-in-out;
+        z-index: 99;
+      }
+      .nav-links.active { right: 0; }
+      .nav-toggle { display: block; }
+      .nav-cta { display: none; }
+      .nav-cta-mobile-wrap { display: block !important; }
+      .nav-cta-mobile {
+        background: var(--terra); color: var(--white);
+        padding: 12px 24px; border-radius: 40px;
+        text-decoration: none; font-family: Arial, sans-serif;
+        font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+      }
+    }
+
     @media (max-width: 768px) {
-      nav { top: 10px; left: 1rem; right: 1rem; }
-      .nav-links { display: none; }
-      .hero { text-align: center; padding: 2.2rem 1.4rem; }
-      .hero-intro { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 1.7rem; }
-      .hero-left { max-width: 100%; min-height: 0; display: block; }
-      .hero-sub { margin-left: auto; margin-right: auto; }
-      .hero-right { min-height: 420px; height: auto; max-width: 100%; justify-self: center; }
-      .about-story { padding: 2.5rem 1.5rem; margin: 0 auto 1rem; text-align: left; }
+      .footer-inner { flex-direction: column; text-align: center; gap: 2.5rem; }
+      .footer-brand { flex-direction: column; gap: 1.5rem; text-align: center; max-width: 100%; }
+      .footer-desc { max-width: 100%; text-align: center; margin: 0; }
+      .footer-badges { justify-content: center; width: 100%; }
+      .footer-links-wrap { flex-direction: row; justify-content: center; gap: 3rem; margin-right: 0; width: 100%; }
+      .footer-col { text-align: left; }
+      .hero {
+        display: flex !important;
+        flex-direction: column !important;
+        background: var(--cream) !important;
+        min-height: auto !important;
+        padding: 130px 1.5rem 0 !important;
+        text-align: center !important;
+        position: relative !important;
+        margin: 0 !important;
+        overflow: visible !important;
+      }
+      .hero-intro {
+        display: block !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 auto 0 !important;
+        max-width: 100% !important;
+      }
+      .hero-left {
+        max-width: 100% !important;
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 0 !important;
+      }
+      .hero-left > * {
+        align-self: center !important;
+      }
+      .hero-tag {
+        align-self: center !important;
+        text-align: center !important;
+        margin-bottom: 0.75rem !important;
+      }
+      .hero-title {
+        text-align: center !important;
+        font-size: clamp(38px, 9vw, 52px) !important;
+        align-self: center !important;
+        margin-bottom: 1rem !important;
+      }
+      .wavy-line {
+        align-self: center !important;
+        margin: 0.5rem auto 1.5rem !important;
+      }
+      .hero-sub {
+        margin: 0 auto 2rem !important;
+        text-align: center !important;
+        max-width: 420px !important;
+        font-size: 16px !important;
+        color: var(--ink-light) !important;
+      }
+      .hero-btns {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        align-self: center !important;
+        width: 100% !important;
+        gap: 0.75rem !important;
+        margin-top: 0 !important;
+      }
+      .hero-btns a {
+        align-self: center !important;
+        margin: 0 !important;
+        text-align: center !important;
+        padding: 12px 20px !important;
+        font-size: 12px !important;
+        flex: 0 1 auto !important;
+        max-width: none !important;
+        white-space: nowrap !important;
+      }
+      .hero-location {
+        display: none !important;
+      }
+      .mobile-hero-photo-wrapper {
+        display: block !important;
+        width: calc(100% + 3rem) !important;
+        margin: 1.5rem -1.5rem 0 !important;
+        height: 360px !important;
+        overflow: hidden !important;
+        position: relative !important;
+        background: var(--cream) !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+      }
+      .mobile-hero-photo {
+        display: block !important;
+        width: 100% !important;
+        height: 116% !important;
+        object-fit: cover !important;
+        object-position: center 40% !important;
+        position: absolute !important;
+        top: -8% !important;
+        left: 0 !important;
+        border: none !important;
+        outline: none !important;
+        vertical-align: middle !important;
+        box-shadow: none !important;
+      }
+      .about-story { padding: 2rem 1.5rem 1.5rem; margin: 0 auto 1rem; text-align: left; }
       .about-story-layout { grid-template-columns: 1fr; gap: 1.7rem; }
-      .about-story-image { max-width: 100%; min-height: 320px; height: auto; }
+      .about-story-image { display: none !important; }
       .offerings-grid, .steps, .testi-grid, .pricing-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
+      .path-card {
+        padding: 3rem 1.5rem !important;
+      }
+      .path-card .step-title {
+        font-size: 19px !important;
+      }
+      .path-card .step-desc {
+        font-size: 13.5px !important;
+        line-height: 1.6 !important;
+      }
     }
   </style>
 </head>
@@ -1008,15 +1165,20 @@
 
   <!-- NAV -->
   <nav>
-    <img src="logo.png" alt="UnFold Logo" class="nav-logo-img"
-      style="height: 240px; width: auto; pointer-events: none;">
+    <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+      <img src="logo.png" alt="UnFold Logo" class="nav-logo-img"
+        style="height: 240px; width: auto;">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
     <ul class="nav-links">
       <li><a href="#">Home</a></li>
       <li><a href="about.html">A little about me</a></li>
       <li><a href="coaching.html">Coaching</a></li>
       <li><a href="somatics.html">Somatics</a></li>
       <li><a href="events.html">Yoga/Events</a></li>
-
+      <li class="nav-cta-mobile-wrap" style="display: none;"><a href="contact.html" class="nav-cta-mobile">Fancy a chat?</a></li>
     </ul>
     <a href="contact.html"
       class="nav-cta">Fancy a chat?</a>
@@ -1035,6 +1197,9 @@
           <a href="contact.html" class="btn-primary">Work with me</a>
           <a href="about.html" class="btn-outline">A little about me</a>
         </div>
+        <div class="mobile-hero-photo-wrapper">
+          <img src="photo.jpg" alt="Kelly Akehurst - Coach" class="mobile-hero-photo">
+        </div>
       </div>
     </div>
     <div class="hero-location">📍 Christchurch, NZ · Online</div>
@@ -1049,9 +1214,9 @@
       <div class="about-story-content">
         <p class="section-tag">About UnFold</p>
         <h2 class="section-title">We are all human...</h2>
-        <p class="section-body" style="margin-bottom:1.5rem;">At Unfold I offer nervous system centred coaching and a calm, shame-free space to get honest about life and how you are navigating it.</p>
+        <p class="section-body" style="margin-bottom:1.5rem;">At Unfold I offer nervous-system centred coaching and a calm, shame-free space to get honest about life and how you are navigating it.</p>
         
-        <p class="section-body" style="margin-bottom:1.5rem;">The coaching support I offer is informed by lived experience and backed by my ANZCAL coaching accreditation, RYT 200, Integrative Somatic certification and an almost 15-year career in healthcare. I have walked this path professionally and personally, and I know it looks different for everyone.</p>
+        <p class="section-body" style="margin-bottom:1.5rem;">The coaching support I offer is informed by lived experience and backed by my ANZCAL coaching accreditation, RYT 200, upcoming Integrative Somatic certification and an almost 15-year career in healthcare. I have walked this path professionally and personally, and I know it looks different for everyone.</p>
 
         <p class="section-body" style="margin-bottom:1.5rem;">I work with a wide variety of people from parents and professionals through to leaders and humans holding it all together under the weight of many hats.</p>
 
@@ -1071,7 +1236,7 @@
           </li>
         </ul>
 
-        <p class="section-body" style="margin-bottom:2rem;">By gently bringing the mind and body into the work together, we can support your nervous system while gaining the clarity to lead life as the most authentic and sustainable version of you.</p>
+        <p class="section-body" style="margin-bottom:2rem;">By gently bringing the mind and body into the work together, we can support your nervous-system while gaining the clarity to lead life as the most authentic and sustainable version of you.</p>
 
         <div style="margin-top: 2.5rem; border-left: 3px solid var(--terra-pale); padding-left: 1.5rem;">
           <p class="section-body" style="font-family: Georgia, serif; font-style: italic; color: var(--slate-dark); font-size: 1.25rem; line-height: 1.6;">
@@ -1110,8 +1275,7 @@
           <a href="coaching.html" class="path-card path-card-2" style="display: block; text-decoration: none; cursor: pointer;">
             <div class="step-num">✦</div>
             <h4 class="step-title">1:1 Coaching</h4>
-            <p class="step-desc">One-to-one coaching journeys designed to help you reconnect with your values, find
-              clarity, and reroute toward your most authentic life, at your pace.</p>
+            <p class="step-desc">I offer supportive coaching designed to help you reconnect with your values, find clarity and move forward with authenticity and sound boundaries.</p>
           </a>
           <div class="path-line-right"></div>
         </div>
@@ -1184,12 +1348,12 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <div style="display: flex; align-items: center; gap: 2rem; max-width: 900px; justify-content: center; margin: 0 auto;">
-        <img src="1.png" alt="UnFold Logo" style="height: 160px; width: auto; display: block;">
-        <p class="footer-desc" style="max-width: 380px; text-align: center; margin: 0 1rem;">Unfold offers nervous system centred coaching for parents, leaders and humans navigating the demands of life across all its roles. Sessions are held online in Ōtautahi Christchurch and across Aotearoa New Zealand, with in person sessions available on request.</p>
-        <div style="display: flex; align-items: center; gap: 1.5rem;">
-          <img src="RYT200%20copy.png" alt="RYT 200 Certification" style="height: 100px; width: auto; display: block; opacity: 0.9;">
-          <img src="Anzcal%20badge.avif" alt="ANZCAL Registered Coach" style="height: 100px; width: auto; display: block; opacity: 0.9;">
+      <div class="footer-brand">
+        <img src="1.png" alt="UnFold Logo" class="footer-logo-img">
+        <p class="footer-desc">Unfold offers nervous-system centred coaching for parents, leaders and humans navigating the demands of life across all its roles. Sessions are held online in Ōtautahi Christchurch and across Aotearoa New Zealand, with in person sessions available on request.</p>
+        <div class="footer-badges">
+          <img src="RYT200%20copy.png" alt="RYT 200 Certification">
+          <img src="Anzcal%20badge.avif" alt="ANZCAL Registered Coach">
         </div>
       </div>
       <div class="footer-links-wrap">
@@ -1197,17 +1361,15 @@
           <h4>Explore</h4>
           <ul>
             <li><a href="about.html">A little about me</a></li>
-
             <li><a href="coaching.html">Coaching</a></li>
             <li><a href="somatics.html">Somatics</a></li>
             <li><a href="events.html">Yoga/Events</a></li>
-            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
           <ul>
-            <li><a href="contact.html">Let's chat</a></li>
+            <li><a href="contact.html">Contact</a></li>
             <li><a href="mailto:kelly@unfoldcoaching.co.nz">Email</a></li>
           </ul>
         </div>
@@ -1221,8 +1383,27 @@
   <script>
     let lastScrollY = window.scrollY;
     const navbar = document.querySelector('nav');
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        navToggle.querySelectorAll('span').forEach((span, index) => {
+          if (navLinks.classList.contains('active')) {
+            if (index === 0) span.style.transform = 'rotate(45deg) translate(5px, 5px)';
+            if (index === 1) span.style.opacity = '0';
+            if (index === 2) span.style.transform = 'rotate(-45deg) translate(7px, -7px)';
+          } else {
+            span.style.transform = 'none';
+            span.style.opacity = '1';
+          }
+        });
+      });
+    }
+
     window.addEventListener('scroll', () => {
-      if (window.scrollY > lastScrollY && window.scrollY > 80) {
+      if (window.scrollY > lastScrollY && window.scrollY > 80 && (!navLinks || !navLinks.classList.contains('active'))) {
         navbar.style.transform = 'translateY(calc(-100% - 25px))';
       } else {
         navbar.style.transform = 'translateY(0)';
