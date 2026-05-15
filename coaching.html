@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coaching | UnFold</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --terra: #D4714A;
+      --terra-light: #E8956E;
+      --terra-pale: #F5E8DF;
+      --slate: #3D6080;
+      --slate-dark: #2A4560;
+      --slate-light: #6A90B0;
+      --cream: #F5EDE3;
+      --cream-dark: #EAD9C8;
+      --ink: #2C1F14;
+      --ink-light: #5C4030;
+      --white: #FEFAF6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 120px;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      padding-top: 120px;
+      opacity: 0;
+      animation: fadeInBody 1s ease-out forwards;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 2rem;
+      right: 2rem;
+      margin: 0 auto;
+      max-width: 1280px;
+      z-index: 100;
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      border-radius: 40px;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--terra);
+    }
+
+    .nav-cta {
+      background: var(--terra);
+      color: var(--white);
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--terra-light);
+      color: var(--white) !important;
+    }
+
+    /* SECTION BASE */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1280px;
+      margin: 0 auto 1.5rem;
+      border-radius: 40px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 1rem;
+    }
+    
+    .section-title {
+      font-size: clamp(30px, 3.5vw, 48px);
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    /* HERO */
+    .hero {
+      background: transparent;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-left {
+      text-align: left;
+      max-width: 100%;
+    }
+
+    .hero-tag {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(42px, 5vw, 72px);
+      line-height: 1.08;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      color: var(--terra);
+      font-style: italic;
+    }
+
+    .hero-sub {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--ink-light);
+      max-width: 620px;
+      margin-bottom: 1rem;
+    }
+
+    .hero-about-emphasis {
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--terra);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .hero-right {
+      width: 100%;
+      max-width: 460px;
+      justify-self: end;
+      border-radius: 36px;
+      overflow: hidden;
+      background: var(--terra-pale);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08);
+      aspect-ratio: 4 / 5;
+    }
+
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .wavy-line {
+      width: 120px;
+      height: 20px;
+      margin: 1rem 0;
+      display: block;
+    }
+
+    .wavy-line path {
+      stroke: var(--slate);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      fill: none;
+    }
+
+    .center-wavy {
+      margin: 1.5rem auto;
+    }
+
+    /* BUTTON */
+    .btn-primary {
+      background: var(--terra);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+      cursor: pointer;
+      border: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--terra-light);
+    }
+
+    /* PRICING */
+    .pricing {
+      background: var(--cream);
+      padding-top: 3.5rem;
+    }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    
+    .price-card { 
+      background: var(--white); 
+      border-radius: 20px; 
+      padding: 2.5rem 2rem; 
+      border: 1px solid var(--cream-dark); 
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    
+    .price-card.highlighted { border: 2.3px solid var(--terra); }
+    
+    .price-label {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 0.8rem;
+    }
+    
+    .price-name {
+      font-size: 28px;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    
+    .price-amount { 
+      font-size: 32px; 
+      color: var(--terra); 
+      margin-bottom: 1.5rem; 
+    }
+    
+    .price-amount span {
+      font-size: 13px;
+      color: var(--ink-light);
+      opacity: 0.7;
+    }
+
+    .price-divider {
+      height: 1px;
+      background: rgba(44, 31, 20, 0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .price-features { 
+      list-style: none; 
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+    
+    .price-features li { 
+      font-size: 14px; 
+      line-height: 1.6;
+      padding: 6px 0; 
+      padding-left: 1.5rem; 
+      position: relative; 
+      color: var(--ink-light);
+    }
+    
+    .price-features li::before { 
+      content: '•'; 
+      position: absolute; 
+      left: 0; 
+      color: var(--terra); 
+      opacity: 0.6;
+    }
+    
+    .price-note { 
+      font-size: 11px; 
+      color: var(--ink-light); 
+      margin-top: auto;
+      margin-bottom: 1.5rem; 
+      font-style: italic; 
+      line-height: 1.4;
+      opacity: 0.8;
+    }
+
+    .price-cta {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      border-radius: 40px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      width: 100%;
+      transition: all 0.2s;
+    }
+
+    .cta-fill { background: var(--terra); color: var(--white); }
+    .cta-fill:hover { background: var(--terra-light); }
+    .cta-border { border: 1.5px solid var(--terra); color: var(--terra); }
+    .cta-border:hover { background: var(--terra); color: var(--white); }
+
+    /* CTA */
+    .cta-section { background: var(--slate-dark); padding: 3.5rem 2rem; text-align: center; border-radius: 40px; margin-top: 1.5rem; margin-bottom: 0;}
+    .cta-title { font-size: clamp(28px, 3vw, 44px); color: var(--cream); margin-bottom: 1.2rem; line-height: 1.2; }
+    .cta-body { font-family: Arial, sans-serif; font-size: 16px; color: rgba(245, 237, 227, 0.75); max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.6; }
+    .footer-bottom { font-family: Arial, sans-serif; font-size: 11px; color: rgba(44, 31, 20, 0.6); max-width: 1280px; margin: 1rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(44, 31, 20, 0.15); display: flex; justify-content: space-between; align-items: center; }
+
+    /* FOOTER */
+    footer { background: #c8bdb0; color: var(--ink); padding: 1.5rem 2rem 1rem; margin-top: 2rem; border-radius: 40px 40px 0 0; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .footer-links-wrap { display: flex; gap: 4rem; margin-right: 6rem; }
+    .footer-logo { font-size: 26px; color: var(--terra); font-weight: 700; margin-bottom: 0.5rem; }
+    .footer-desc { font-family: Arial, sans-serif; font-size: 14px; color: rgba(44, 31, 20, 0.8); line-height: 1.6; }
+    .footer-col h4 { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li a { font-family: Arial, sans-serif; font-size: 14px; color: var(--ink-light); text-decoration: none; line-height: 1.6; }
+
+    @media (max-width: 768px) {
+      nav { top: 10px; left: 1rem; right: 1rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 1.8rem; }
+      .hero-left { text-align: center; }
+      .hero-sub { margin: 0 auto 2rem; }
+      .hero-right { max-width: 360px; justify-self: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <img src="logo.png" alt="UnFold Logo" class="nav-logo-img"
+      style="height: 240px; width: auto; pointer-events: none;">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">A little about me</a></li>
+
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="somatics.html">Somatics</a></li>
+      <li><a href="events.html">Yoga/Events</a></li>
+
+    </ul>
+    <a href="contact.html" class="nav-cta">Fancy a chat?</a>
+  </nav>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <p class="section-tag">Invest in yourself</p>
+      <h2 class="section-title">Choose your journey.</h2>
+      <svg class="wavy-line center-wavy" viewBox="0 0 100 20" style="text-align:center;"><path d="M0 10 Q 12.5 0, 25 10 T 50 10 T 75 10 T 100 10"/></svg>
+      <p style="font-family: Arial, sans-serif; font-size: 15px; color: var(--ink-light); text-align: center; margin-top: -0.5rem; margin-bottom: 3.5rem; opacity: 0.8; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">Sessions are available online or by phone (in-person available on request). We will space our sessions at a pace that feels right for you, finding regular intervals that support a steady rhythm while respecting your capacity.</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <p class="price-label">Single session</p>
+          <h3 class="price-name">The Compass</h3>
+          <div class="price-amount">$200 <span>NZD</span></div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li>A 90 minute deep dive to map your current landscape and set clear intentions</li>
+            <li>Values and strengths exploration to help you discern between capability and true capacity</li>
+            <li>Targeted boundary setting support to protect your time and energy</li>
+            <li>A clear, grounded starting point for your personal UnFolding</li>
+          </ul>
+          <p class="price-note">*Should you choose to continue with a package after your Compass Session, $100 of the session fee is deductible from the total package price.</p>
+
+        </div>
+        <div class="price-card highlighted">
+          <p class="price-label">Most popular</p>
+          <h3 class="price-name">The UnFolding</h3>
+          <div class="price-amount">$495 <span>NZD · 3 sessions</span></div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li>Three 60 minute sessions to begin stripping back inherited patterns</li>
+            <li>Identifying where overwhelm is showing up and uncovering the 'why' behind it</li>
+            <li>Exploring your core values and strengths to build a foundation for change</li>
+            <li>Integration of somatic practices for nervous system regulation</li>
+            <li>Gentle weekly check-in via email to help anchor your progress and reflection</li>
+          </ul>
+          <p class="price-note">*Additional sessions are available at a discounted rate, acknowledging that meaningful change takes as long as it takes. We’ll always space our work in a way that respects your own pace and process.</p>
+
+        </div>
+        <div class="price-card">
+          <p class="price-label">Full container</p>
+          <h3 class="price-name">The Deep UnFold</h3>
+          <div class="price-amount">$900 <span>NZD · 6 sessions</span></div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li>Six 60 minute sessions for profound, sustainable transformation</li>
+            <li>Client-led intentions to ensure our work together respects your individual rhythm</li>
+            <li>Deep work to close the gap between who you genuinely are and who you feel you have to be</li>
+            <li>Ongoing boundary setting and capacity-building for life and leadership</li>
+            <li>Gentle weekly check-in via email/text: a space to reflect, or simply notice what is coming up for you</li>
+            <li>Tailored nervous system resources to support your long-term recalibration</li>
+          </ul>
+          <p class="price-note">*Additional sessions are available at a discounted rate, acknowledging that meaningful change takes as long as it takes. We’ll always space our work in a way that respects your own pace and process.</p>
+
+        </div>
+      </div>
+      
+      <div style="max-width: 1280px; margin: 4rem auto 0; padding: 0 1rem;">
+        <div style="font-family: Arial, sans-serif; font-size: 11px; line-height: 1.7; color: var(--ink-light); opacity: 0.7; border-top: 1px solid rgba(44, 31, 20, 0.1); padding-top: 2.5rem; text-align: left;">
+          <p style="margin-bottom: 1.2rem;"><strong>Disclaimer:</strong> Coaching with Unfold is not a medical, therapeutic or counselling service and is not a substitute for professional mental health care, legal advice or any other licensed professional service. While I am a certified coach, I am not acting as a therapist, counsellor or legal advisor. The coaching support I offer is intended to complement, not replace, any professional care you may already be receiving.</p>
+          <p style="margin-bottom: 1.2rem;">Outcomes will always vary based on individual needs and circumstances, and clients engage in the coaching process voluntarily, taking full responsibility for the decisions and actions that arise from it.</p>
+          <p style="margin-bottom: 1.2rem;">Your privacy matters. Everything shared within our coaching relationship is treated with complete confidentiality. The only exceptions are situations where there is a risk of harm to yourself or others, or where disclosure is required by law.</p>
+          <p>If you are unsure whether coaching is the right fit for you right now, the best place to start is a conversation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div style="max-width: 1280px; margin: 0 auto; padding: 0 5%;">
+    <div style="width: 100%; height: 1px; background: rgba(61, 96, 128, 0.15);"></div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-section" id="connect" style="background: transparent; padding: 2rem 0 4rem;">
+    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+      <a href="mailto:kelly@unfoldcoaching.co.nz?subject=Fancy a chat?" class="btn-primary" style="width: auto; margin-left: 0;">Fancy a chat?</a>
+      <a href="index.html" class="btn-primary" style="background: var(--slate); color: var(--white); width: auto; margin-left: 0;">Back to home</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div style="display: flex; align-items: center; gap: 2rem; max-width: 900px; justify-content: center; margin: 0 auto;">
+        <img src="1.png" alt="UnFold Logo" style="height: 160px; width: auto; display: block;">
+        <p class="footer-desc" style="max-width: 380px; text-align: center; margin: 0 1rem;">Unfold offers nervous system centred coaching for parents, leaders and humans navigating the demands of life across all its roles. Sessions are held online in Ōtautahi Christchurch and across Aotearoa New Zealand, with in person sessions available on request.</p>
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
+          <img src="RYT200%20copy.png" alt="RYT 200 Certification" style="height: 100px; width: auto; display: block; opacity: 0.9;">
+          <img src="Anzcal%20badge.avif" alt="ANZCAL Registered Coach" style="height: 100px; width: auto; display: block; opacity: 0.9;">
+        </div>
+      </div>
+      <div class="footer-links-wrap">
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="about.html">A little about me</a></li>
+
+            <li><a href="coaching.html">Coaching</a></li>
+            <li><a href="somatics.html">Somatics</a></li>
+            <li><a href="events.html">Yoga/Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="contact.html">Let's chat</a></li>
+            <li><a href="mailto:kelly@unfoldcoaching.co.nz">Email</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 UnFold Coaching. Christchurch, New Zealand.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

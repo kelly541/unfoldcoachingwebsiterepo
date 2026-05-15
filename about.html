@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Kelly | UnFold Coaching . Somatics . Yoga</title>
+  <meta name="description" content="Meet Kelly – ANZCAL Registered Coach, 200hr RYT and Integrative Somatic Facilitator based in Christchurch, New Zealand.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --terra: #D4714A;
+      --terra-light: #E8956E;
+      --terra-pale: #F5E8DF;
+      --slate: #3D6080;
+      --slate-dark: #2A4560;
+      --slate-light: #6A90B0;
+      --cream: #F5EDE3;
+      --cream-dark: #EAD9C8;
+      --ink: #2C1F14;
+      --ink-light: #5C4030;
+      --white: #FEFAF6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 120px;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      padding-top: 120px;
+      opacity: 0;
+      animation: fadeInBody 1s ease-out forwards;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 2rem;
+      right: 2rem;
+      margin: 0 auto;
+      max-width: 1280px;
+      z-index: 100;
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      border-radius: 40px;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--terra);
+    }
+
+    .nav-cta {
+      background: var(--terra);
+      color: var(--white);
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--terra-light);
+      color: var(--white) !important;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: var(--cream);
+      max-width: 1280px;
+      margin: 0 auto 1rem;
+      border-radius: 40px;
+      padding: 4rem 5% 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .header-image {
+      float: right;
+      width: 42%;
+      min-width: 260px;
+      max-width: 400px;
+      aspect-ratio: 4 / 5;
+      height: auto;
+      margin: 0 0 2rem 2.5rem;
+      background: var(--terra-pale);
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.07);
+    }
+
+    .header-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .page-tag {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 1rem;
+    }
+
+    .page-title {
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-title em {
+      color: var(--terra);
+      font-style: italic;
+    }
+
+    .story-inline {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--ink-light);
+    }
+
+    .story-inline p {
+      margin-bottom: 1.4rem;
+    }
+
+    .story-closing {
+      text-align: right;
+      margin-top: 3rem;
+      font-family: Georgia, serif;
+      font-size: 26px;
+      color: var(--ink);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .wavy-line {
+      width: 120px;
+      height: 20px;
+      margin: 1rem 0 2rem;
+      display: block;
+    }
+
+    .wavy-line path {
+      stroke: var(--slate);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      fill: none;
+    }
+
+
+
+    /* CREDENTIALS STRIP */
+    .credentials {
+      background: var(--slate-dark);
+      max-width: 1280px;
+      margin: 0 auto 1rem;
+      border-radius: 40px;
+      padding: 3rem 5%;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .credential-item {
+      text-align: center;
+      color: var(--cream);
+    }
+
+    .credential-item .cred-label {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--terra-light);
+      margin-bottom: 0.4rem;
+    }
+
+    .credential-item .cred-value {
+      font-size: 18px;
+    }
+
+    .cred-divider {
+      width: 1px;
+      height: 50px;
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* CTA SECTION */
+    .about-cta-new {
+      max-width: 1280px;
+      margin: 0 auto 2rem;
+      padding: 5rem 5% 3rem;
+      text-align: center;
+    }
+
+    .about-cta-new h2 {
+      font-size: clamp(28px, 3.5vw, 44px);
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-cta-new p {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--ink-light);
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .btn-primary {
+      background: var(--terra);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--terra-light);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink-light);
+      border: 1.5px solid var(--ink-light);
+      padding: 13px 32px;
+      border-radius: 40px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+      margin-left: 1rem;
+    }
+
+    .btn-outline:hover {
+      background: var(--ink-light);
+      color: var(--white);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #c8bdb0;
+      color: var(--ink);
+      padding: 1.5rem 2rem 1rem;
+      margin-top: 2rem;
+      border-radius: 40px 40px 0 0;
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links-wrap { display: flex; gap: 4rem; margin-right: 6rem; }
+    .footer-desc { font-family: Arial, sans-serif; font-size: 14px; color: rgba(44, 31, 20, 0.8); line-height: 1.6; }
+    .footer-col h4 { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li a { font-family: Arial, sans-serif; font-size: 14px; color: var(--ink-light); text-decoration: none; line-height: 1.6; }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 1rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(44, 31, 20, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      color: rgba(44, 31, 20, 0.6);
+    }
+
+    @media (max-width: 768px) {
+      nav { top: 10px; left: 1rem; right: 1rem; }
+      .nav-links { display: none; }
+      .header-image { float: none; width: 100%; max-width: 100%; margin: 0 0 2rem; }
+      .credentials { flex-direction: column; }
+      .cred-divider { width: 60px; height: 1px; }
+      .btn-outline { margin-left: 0; margin-top: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <img src="logo.png" alt="UnFold Logo" class="nav-logo-img"
+      style="height: 240px; width: auto; pointer-events: none;">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">A little about me</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="somatics.html">Somatics</a></li>
+      <li><a href="events.html">Yoga/Events</a></li>
+
+    </ul>
+    <a href="contact.html" class="nav-cta">Fancy a chat?</a>
+  </nav>
+
+  <!-- PAGE HEADER + STORY (image floats right, text wraps beside and below) -->
+  <div class="page-header reveal">
+    <div class="header-image">
+      <img src="IMG_0597.jpeg" alt="Kelly – Life Coach, Christchurch NZ">
+    </div>
+
+    <p class="page-tag">A little about me</p>
+    <h1 class="page-title">Oh Hey There,<br>I'm <em>Kelly...</em></h1>
+    <svg class="wavy-line" viewBox="0 0 100 20"><path d="M0 10 Q 12.5 0, 25 10 T 50 10 T 75 10 T 100 10"/></svg>
+
+    <div class="story-inline">
+      <p>I am a wife, a mum of teenagers, keeper of dogs and chickens, a lifelong learner and an all-round imperfect human. When I'm not coaching you'll find me with family and friends, walking and hiking in nature, failing with joy in improv and acting classes, and generally embracing a bit of tomfoolery wherever possible. I believe that life doesn't just happen to us, we also happen to life, and while we often forget this, it is a belief that can be incredibly empowering.</p>
+
+      <p>Professionally, my background is in healthcare. An almost 15-year career as a Registered Anaesthetic Technician across clinical, leadership and education roles taught me a great deal about people, pressure and the privilege of walking alongside others at their most vulnerable. It also taught me something equally important: how we show up for and as ourselves matters just as much.</p>
+
+      <p>Like most people who give a lot, I was better at the former than the latter for a long time. Alongside a demanding career I navigated grief, sudden loss, debilitating health challenges and the particular kind of pressure that comes from navigating personal and family life while neglecting to keep enough in reserve for yourself. I did what capable people so often do, I held it together and kept going. I'm clearly both incredibly stubborn and a ridiculously slow learner, but eventually the right question found me: was I still heading in the right direction?</p>
+
+      <p>That question found me in 2024. What followed was a process of stripping back inherited patterns and perceived expectations, and coming home to what was actually mine. Because we cannot think our way to wholeness. Real change happens when we come back to the body, back to what we feel underneath all the noise, back to what actually matters. Getting honest about my values, my direction and my way of moving through the world gave me something I hadn't had in years: a solid and authentic foundation to move forward from.</p>
+
+      <p>That process is what Unfold is built on.</p>
+
+      <p>I am an ANZCAL Registered Coach, 200hr RYT and currently completing my 300hr Integrative Somatic Facilitation training. I bring a warm, supportive and confidential space to every session, where a sense of humour is not only welcome but often necessary. I will always meet you where you are, working at your pace and in a way that feels right for you.</p>
+    </div>
+  </div>
+
+
+
+  <!-- Divider -->
+  <div style="max-width: 1280px; margin: 0 auto; padding: 0 5%;">
+    <div style="width: 100%; height: 1px; background: rgba(61, 96, 128, 0.15);"></div>
+  </div>
+
+  <!-- CTA -->
+  <div class="about-cta-new reveal" style="padding: 2rem 0 4rem;">
+    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+      <a href="mailto:kelly@unfoldcoaching.co.nz?subject=Fancy a chat?" class="btn-primary" style="margin-left:0;">Fancy a chat?</a>
+      <a href="index.html" class="btn-primary" style="background: var(--slate); color: var(--white); margin-left: 0;">Back to home</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div style="display: flex; align-items: center; gap: 2rem; max-width: 900px; justify-content: center; margin: 0 auto;">
+        <img src="1.png" alt="UnFold Logo" style="height: 160px; width: auto; display: block;">
+        <p class="footer-desc" style="max-width: 380px; text-align: center; margin: 0 1rem;">Unfold offers nervous system centred coaching for parents, leaders and humans navigating the demands of life across all its roles. Sessions are held online in Ōtautahi Christchurch and across Aotearoa New Zealand, with in person sessions available on request.</p>
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
+          <img src="RYT200%20copy.png" alt="RYT 200 Certification" style="height: 100px; width: auto; display: block; opacity: 0.9;">
+          <img src="Anzcal%20badge.avif" alt="ANZCAL Registered Coach" style="height: 100px; width: auto; display: block; opacity: 0.9;">
+        </div>
+      </div>
+      <div class="footer-links-wrap">
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">A little about me</a></li>
+            <li><a href="coaching.html">Coaching</a></li>
+            <li><a href="somatics.html">Somatics</a></li>
+            <li><a href="events.html">Yoga/Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="contact.html">Let's chat</a></li>
+            <li><a href="mailto:kelly@unfoldcoaching.co.nz">Email</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 UnFold Coaching. Christchurch, New Zealand.</p>
+    </div>
+  </footer>
+
+  <script>
+    let lastScrollY = window.scrollY;
+    const navbar = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 80) {
+        navbar.style.transform = 'translateY(calc(-100% - 25px))';
+      } else {
+        navbar.style.transform = 'translateY(0)';
+      }
+      lastScrollY = window.scrollY;
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+
+</html>

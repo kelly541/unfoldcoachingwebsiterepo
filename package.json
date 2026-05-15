@@ -1,0 +1,13 @@
+{
+  "name": "unfoldcoachingwebsiterepo",
+  "version": "1.0.0",
+  "description": "UnFold Coaching Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "swap": "node swap.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

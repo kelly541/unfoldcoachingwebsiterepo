@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UnFold | Coaching . Somatics . Yoga</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --terra: #D4714A;
+      --terra-light: #E8956E;
+      --terra-pale: #F5E8DF;
+      --slate: #3D6080;
+      --slate-dark: #2A4560;
+      --slate-light: #6A90B0;
+      --cream: #F5EDE3;
+      --cream-dark: #EAD9C8;
+      --ink: #2C1F14;
+      --ink-light: #5C4030;
+      --white: #FEFAF6;
+      --slate-pale: #E9EEF2;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 120px;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      padding-top: 0;
+      opacity: 0;
+      animation: fadeInBody 1s ease-out forwards;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1.2s ease-out;
+    }
+
+    .fade-in.active {
+      opacity: 1;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 2rem;
+      right: 2rem;
+      margin: 0 auto;
+      max-width: 1280px;
+      z-index: 100;
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      border-radius: 40px;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--terra);
+    }
+
+    .nav-cta {
+      background: var(--terra);
+      color: var(--white);
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--terra-light);
+      color: var(--white) !important;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(to right, rgba(245, 237, 227, 0) 50%, rgba(245, 237, 227, 0.85) 85%, rgba(245, 237, 227, 0.98) 100%), url('photo.jpg') center/cover no-repeat;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      max-width: none;
+      margin: 0 0 1rem 0;
+      padding: 0;
+      border-radius: 0;
+      min-height: 600px;
+    }
+
+    .hero-intro {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      min-height: 600px;
+      padding: 160px 0 3.2rem 3.5rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 1rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(44, 31, 20, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      color: rgba(44, 31, 20, 0.6);
+    }
+
+    .hero-left {
+      padding: 2rem 0;
+      max-width: 850px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .hero-tag {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(42px, 5.5vw, 82px);
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 0.8rem;
+      text-align: right;
+    }
+
+    .hero-title em {
+      color: var(--terra);
+      font-style: italic;
+    }
+
+    .hero-sub {
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink-light);
+      max-width: 480px;
+      margin-bottom: 1.8rem;
+      text-align: right;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--terra);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+      cursor: pointer;
+      border: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--terra-light);
+    }
+
+    .wavy-line {
+      width: 120px;
+      height: 20px;
+      margin: 1rem 0;
+      display: block;
+    }
+
+    .wavy-line path {
+      stroke: var(--terra);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      fill: none;
+    }
+
+    .center-wavy {
+      margin: 1.5rem auto;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink-light);
+      border: 1.5px solid var(--ink-light);
+      padding: 13px 32px;
+      border-radius: 40px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background: var(--ink-light);
+      color: var(--white);
+    }
+
+
+
+    .hero-location {
+      position: absolute;
+      bottom: 2rem;
+      left: 3rem;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    /* ABOUT UNFOLD */
+    .about-story {
+      background: transparent;
+      padding: 2rem 0;
+      max-width: 1280px;
+      margin: 0 auto 2rem;
+    }
+
+    .about-story-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-story-image {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      background: var(--terra-pale);
+      position: relative;
+      overflow: hidden;
+      border-radius: 200px 200px 30px 30px;
+      box-shadow: 0 15px 35px rgba(44, 31, 20, 0.12);
+    }
+
+    .about-story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .about-story-content .section-body {
+      max-width: none;
+    }
+
+    /* SECTION BASE */
+    section {
+      padding: 3rem 2rem;
+      max-width: 1280px;
+      margin: 0 auto 2rem;
+      border-radius: 40px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 3.5vw, 48px);
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--ink-light);
+      max-width: 640px;
+    }
+
+    /* STORY */
+    .story { background: var(--white); }
+
+    /* ABOUT */
+    .about {
+      background: var(--white);
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      border-radius: 0;
+    }
+
+    .about-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .about-orb {
+      width: 300px;
+      height: 380px;
+      border-radius: 200px 200px 200px 200px / 240px 240px 180px 180px;
+      background: var(--terra-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .about-quote {
+      text-align: center;
+      padding: 2rem;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--terra);
+      font-style: italic;
+    }
+
+    /* OFFERINGS */
+    .offerings { background: var(--cream); }
+
+    .offerings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .offering-card {
+      background: var(--white);
+      border-radius: 30px;
+      padding: 3rem 2rem;
+      text-align: center;
+      border: 1px solid var(--cream-dark);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(44, 31, 20, 0.04);
+    }
+
+    .offering-card:hover { transform: translateY(-4px); }
+
+    .offering-card.featured {
+      background: var(--slate);
+      color: var(--cream);
+    }
+
+    .offering-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+      font-size: 20px;
+    }
+
+    .icon-slate { background: rgba(255, 255, 255, 0.15); }
+
+    .offering-title {
+      font-size: 22px;
+      margin-bottom: 0.6rem;
+    }
+
+    .offering-desc {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .offering-tag {
+      margin-top: 1.2rem;
+      display: inline-block;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--cream);
+    }
+
+    /* ACCORDION */
+    .accordion-group {
+      margin-bottom: 2.5rem;
+      max-width: 640px;
+    }
+    .accordion-item {
+      margin-bottom: 0.8rem;
+    }
+    .accordion-header {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.9;
+      font-weight: 400;
+      color: var(--ink-light);
+      cursor: pointer;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .accordion-header::-webkit-details-marker {
+      display: none;
+    }
+    .accordion-header::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-bottom: 2px solid var(--terra);
+      border-right: 2px solid var(--terra);
+      transform: rotate(45deg);
+      transition: transform 0.3s ease;
+      margin-left: 1rem;
+      margin-top: 6px;
+      display: block;
+      flex-shrink: 0;
+    }
+    details[open] .accordion-header::after {
+      transform: rotate(-135deg);
+    }
+    details[open] .accordion-header {
+      color: var(--terra);
+    }
+    .accordion-content {
+      padding-top: 0.2rem;
+      padding-bottom: 1.2rem;
+      padding-right: 2rem;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--ink-light);
+      animation: slideDown 0.3s ease-out;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* PROCESS */
+    .process { 
+      background: transparent; 
+      padding-top: 4rem; 
+      padding-bottom: 4rem;
+      border-top: 1px solid rgba(44, 31, 20, 0.08);
+      border-bottom: 1px solid rgba(44, 31, 20, 0.08);
+      margin-bottom: 2rem;
+    }
+
+    .path-node { position: relative; max-width: 340px; margin: 0 auto; padding-bottom: 3rem; }
+
+    .path-card {
+      padding: 4rem 3.5rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.1),
+        inset -10px -10px 20px rgba(0, 0, 0, 0.15),
+        inset 10px 10px 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .path-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 
+        0 20px 45px rgba(0, 0, 0, 0.15),
+        inset -10px -10px 20px rgba(0, 0, 0, 0.15),
+        inset 10px 10px 20px rgba(255, 255, 255, 0.2);
+    }
+    
+    .path-card .step-title,
+    .path-card .step-desc { color: var(--white) !important; }
+    
+    .path-card .step-num { background: rgba(255, 255, 255, 0.2) !important; color: var(--white) !important; }
+    
+    .path-card-1 { 
+      background: radial-gradient(circle at 30% 30%, var(--slate), var(--slate-dark)); 
+      border-radius: 62% 38% 50% 50% / 55% 56% 44% 45%; 
+    }
+
+    .path-card-2 { 
+      background: radial-gradient(circle at 30% 30%, var(--slate-light), var(--slate)); 
+      border-radius: 44% 56% 43% 57% / 51% 45% 55% 49%; 
+    }
+    .path-card-3 { 
+      background: radial-gradient(circle at 30% 30%, var(--terra-light), var(--terra));
+      border-radius: 51% 49% 56% 44% / 46% 53% 47% 54%; 
+    }
+    .path-card-4 { 
+      background: radial-gradient(circle at 30% 30%, var(--terra-light), var(--terra)); 
+      border-radius: 48% 52% 50% 50% / 50% 50% 48% 52%; 
+    }
+    .process-headings {
+      position: absolute;
+      top: 0;
+      left: 0;
+      max-width: 750px;
+      z-index: 10;
+      text-align: left;
+    }
+    .process-headings .section-tag,
+    .process-headings .section-title {
+      text-align: left !important;
+    }
+    .process-headings .section-title {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1280px) {
+      .process-headings {
+        position: relative;
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .process-headings .section-tag,
+      .process-headings .section-title {
+        text-align: center !important;
+        white-space: normal;
+      }
+    }
+
+    .process-horizontal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 0;
+    }
+
+    .path-node-h {
+      position: relative;
+      width: 320px;
+      flex-shrink: 0;
+    }
+
+    .path-line-right {
+      position: absolute;
+      top: 50%;
+      right: -3rem;
+      width: 3rem;
+      height: 2px;
+      background: var(--slate);
+      opacity: 0.4;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .pathway-fork-h {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      position: relative;
+    }
+
+    /* Junction point for the bifurcation */
+    .pathway-fork-h::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      background: var(--slate);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      opacity: 0.5;
+    }
+
+    .path-branch-h {
+      position: relative;
+      width: 320px;
+      flex-shrink: 0;
+    }
+
+
+    .branch-top .branch-line-v {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 2px;
+      height: calc(50% + 1.2rem); 
+      background: var(--slate);
+      opacity: 0.4;
+    }
+
+
+    .branch-bottom .branch-line-v {
+      position: absolute;
+      bottom: 50%;
+      left: 0;
+      width: 2px;
+      height: calc(50% + 1.2rem); 
+      background: var(--slate);
+      opacity: 0.4;
+    }
+
+    .process-horizontal .path-card {
+      padding: 3rem 2rem;
+    }
+
+    /* Mobile handling */
+    @media (max-width: 1280px) {
+      .process-horizontal {
+        flex-direction: column;
+        gap: 3rem;
+      }
+      .path-node-h, .path-branch-h {
+        width: 100%;
+        max-width: 400px;
+      }
+      .path-line-right {
+        top: auto;
+        bottom: -3rem;
+        left: 50%;
+        right: auto;
+        width: 2px;
+        height: 3rem;
+        transform: translateX(-50%);
+      }
+      .pathway-fork-h {
+        flex-direction: row;
+        width: 100%;
+        gap: 2rem;
+        justify-content: center;
+      }
+      .branch-top .branch-line-h, .branch-bottom .branch-line-h {
+        top: -3rem;
+        left: 50%;
+        width: 2px;
+        height: 3rem;
+        transform: translateX(-50%);
+      }
+      .branch-top .branch-line-v {
+        top: -3rem;
+        left: 50%;
+        width: calc(50% + 1rem);
+        height: 2px;
+      }
+      .branch-bottom .branch-line-v {
+        top: -3rem;
+        right: 50%;
+        left: auto;
+        width: calc(50% + 1rem);
+        height: 2px;
+      }
+    }
+    @media (max-width: 768px) {
+      .pathway-fork-h {
+        flex-direction: column;
+        gap: 3rem;
+      }
+      .branch-top .branch-line-v, .branch-bottom .branch-line-v {
+        display: none;
+      }
+      .branch-top .branch-line-h, .branch-bottom .branch-line-h {
+        top: -3rem;
+        left: 50%;
+        width: 2px;
+        height: 3rem;
+        transform: translateX(-50%);
+      }
+    }
+
+    .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--terra);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin: 0 auto 1rem;
+    }
+
+    .step-title { 
+      font-size: 22px; 
+      font-family: Georgia, serif; 
+      font-weight: 500; 
+      margin-bottom: 0.8rem; 
+      text-align: center; 
+      color: var(--white); 
+      letter-spacing: 0;
+    }
+    .step-desc { 
+      font-family: Arial, sans-serif; 
+      font-size: 16px; 
+      line-height: 1.8; 
+      text-align: center; 
+      color: var(--ink-light); 
+    }
+
+    /* TESTIMONIALS */
+    .testimonials { 
+      background: var(--slate-dark); 
+      padding: 8rem 2rem; 
+      max-width: 100%;
+      margin: 0;
+      border-radius: 0;
+    }
+    .testimonials .section-tag { color: var(--terra-light); text-align: center; }
+    .testimonials .section-title { color: var(--white); text-align: center; margin-bottom: 5rem; }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .testi-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testi-card::before {
+      content: "“";
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 80px;
+      color: rgba(255, 255, 255, 0.1);
+      font-family: Georgia, serif;
+    }
+
+    .testi-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .testi-text { 
+      font-size: 17px; 
+      line-height: 1.8;
+      color: var(--white); 
+      font-style: italic; 
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+      font-family: Georgia, serif;
+    }
+
+    .testi-name { 
+      font-family: Arial, sans-serif; 
+      font-size: 11px; 
+      letter-spacing: 2.5px; 
+      text-transform: uppercase; 
+      color: var(--cream-dark);
+      position: relative;
+      padding-top: 1.5rem;
+    }
+
+    .testi-name::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 1px;
+      background: rgba(245, 237, 227, 0.4);
+    }
+
+    /* PRICING */
+    .pricing { background: var(--cream); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    
+    .price-card { 
+      background: var(--white); 
+      border-radius: 30px; 
+      padding: 3rem 2rem; 
+      border: 1px solid var(--cream-dark); 
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(44, 31, 20, 0.04);
+      transition: transform 0.3s ease;
+    }
+    .price-card:hover { transform: translateY(-5px); }
+    
+    .price-card.highlighted { border: 2.3px solid var(--terra); }
+    
+    .price-label {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 0.8rem;
+    }
+    
+    .price-name {
+      font-size: 28px;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    
+    .price-amount { 
+      font-size: 32px; 
+      color: var(--terra); 
+      margin-bottom: 1.5rem; 
+    }
+    
+    .price-amount span {
+      font-size: 13px;
+      color: var(--ink-light);
+      opacity: 0.7;
+    }
+
+    .price-divider {
+      height: 1px;
+      background: rgba(44, 31, 20, 0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .price-features { 
+      list-style: none; 
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+    
+    .price-features li { 
+      font-size: 14px; 
+      line-height: 1.6;
+      padding: 6px 0; 
+      padding-left: 1.5rem; 
+      position: relative; 
+      color: var(--ink-light);
+    }
+    
+    .price-features li::before { 
+      content: '•'; 
+      position: absolute; 
+      left: 0; 
+      color: var(--terra); 
+      opacity: 0.6;
+    }
+    
+    .price-note { 
+      font-size: 11px; 
+      color: var(--ink-light); 
+      margin-top: auto;
+      margin-bottom: 1.5rem; 
+      font-style: italic; 
+      line-height: 1.4;
+      opacity: 0.8;
+    }
+
+    .price-cta {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      border-radius: 40px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      width: 100%;
+      transition: all 0.2s;
+    }
+
+    .cta-fill { background: var(--ink); color: var(--white); }
+    .cta-fill:hover { background: var(--terra-light); }
+    .cta-border { border: 1.5px solid var(--terra); color: var(--terra); }
+    .cta-border:hover { background: var(--terra); color: var(--white); }
+
+    /* CTA */
+    .cta-section { background: var(--slate-dark); padding: 3.5rem 2rem; text-align: center; border-radius: 40px; margin: 1.5rem auto 0; max-width: 1280px; }
+    .cta-title { font-size: clamp(28px, 3vw, 44px); color: var(--cream); margin-bottom: 1.2rem; }
+    .cta-body { font-family: Arial, sans-serif; font-size: 16px; color: rgba(245, 237, 227, 0.75); max-width: 500px; margin: 0 auto 2.5rem; }
+
+    /* FOOTER */
+    footer { background: #c8bdb0; color: var(--ink); padding: 1.5rem 2rem 1rem; margin-top: 2rem; border-radius: 40px 40px 0 0; }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-links-wrap { display: flex; gap: 4rem; margin-right: 6rem; }
+    .footer-logo { font-size: 26px; color: var(--terra); font-weight: 700; margin-bottom: 0.5rem; }
+    .footer-desc { font-family: Arial, sans-serif; font-size: 14px; color: rgba(44, 31, 20, 0.8); line-height: 1.6; }
+    .footer-col h4 { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li a { font-family: Arial, sans-serif; font-size: 14px; color: var(--ink-light); text-decoration: none; line-height: 1.6; }
+
+    @media (max-width: 768px) {
+      nav { top: 10px; left: 1rem; right: 1rem; }
+      .nav-links { display: none; }
+      .hero { text-align: center; padding: 2.2rem 1.4rem; }
+      .hero-intro { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 1.7rem; }
+      .hero-left { max-width: 100%; min-height: 0; display: block; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+      .hero-right { min-height: 420px; height: auto; max-width: 100%; justify-self: center; }
+      .about-story { padding: 2.5rem 1.5rem; margin: 0 auto 1rem; text-align: left; }
+      .about-story-layout { grid-template-columns: 1fr; gap: 1.7rem; }
+      .about-story-image { max-width: 100%; min-height: 320px; height: auto; }
+      .offerings-grid, .steps, .testi-grid, .pricing-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <img src="logo.png" alt="UnFold Logo" class="nav-logo-img"
+      style="height: 240px; width: auto; pointer-events: none;">
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="about.html">A little about me</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="somatics.html">Somatics</a></li>
+      <li><a href="events.html">Yoga/Events</a></li>
+
+    </ul>
+    <a href="contact.html"
+      class="nav-cta">Fancy a chat?</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-intro">
+      <div class="hero-left">
+        <p class="hero-tag">Christchurch, New Zealand</p>
+        <h1 class="hero-title">Come back to <em>yourself.</em></h1>
+        <svg class="wavy-line" viewBox="0 0 100 20" style="margin-bottom: 1rem;"><path d="M0 10 Q 12.5 0, 25 10 T 50 10 T 75 10 T 100 10"/></svg>
+        <p class="hero-sub">A grounded, values-led space to help you reconnect with what matters and move forward in a way that feels like your own.</p>
+
+        <div class="hero-btns">
+          <a href="contact.html" class="btn-primary">Work with me</a>
+          <a href="about.html" class="btn-outline">A little about me</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-location">📍 Christchurch, NZ · Online</div>
+  </section>
+
+  <!-- ABOUT UNFOLD -->
+  <section class="about-story" id="about-unfold">
+    <div class="about-story-layout">
+      <div class="about-story-image">
+        <img src="heroimage.jpeg" alt="River and mountain landscape">
+      </div>
+      <div class="about-story-content">
+        <p class="section-tag">About UnFold</p>
+        <h2 class="section-title">We are all human...</h2>
+        <p class="section-body" style="margin-bottom:1.5rem;">At Unfold I offer nervous system centred coaching and a calm, shame-free space to get honest about life and how you are navigating it.</p>
+        
+        <p class="section-body" style="margin-bottom:1.5rem;">The coaching support I offer is informed by lived experience and backed by my ANZCAL coaching accreditation, RYT 200, Integrative Somatic certification and an almost 15-year career in healthcare. I have walked this path professionally and personally, and I know it looks different for everyone.</p>
+
+        <p class="section-body" style="margin-bottom:1.5rem;">I work with a wide variety of people from parents and professionals through to leaders and humans holding it all together under the weight of many hats.</p>
+
+        <p class="section-body" style="margin-bottom:1rem; font-weight: 600; color: var(--slate-dark);">Together we:</p>
+        <ul style="list-style: none; padding: 0; margin-bottom: 2rem; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.7; color: var(--ink-light);">
+          <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+            <span style="position: absolute; left: 0; color: var(--terra);">•</span> Uncover where the overwhelm is actually showing up and why
+          </li>
+          <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+            <span style="position: absolute; left: 0; color: var(--terra);">•</span> Explore the gap between who you genuinely are and who you feel you have to be
+          </li>
+          <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+            <span style="position: absolute; left: 0; color: var(--terra);">•</span> Get clear on your values, your strengths and the beliefs that have been quietly holding you back
+          </li>
+          <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+            <span style="position: absolute; left: 0; color: var(--terra);">•</span> Build boundaries that are meaningful, felt and yours
+          </li>
+        </ul>
+
+        <p class="section-body" style="margin-bottom:2rem;">By gently bringing the mind and body into the work together, we can support your nervous system while gaining the clarity to lead life as the most authentic and sustainable version of you.</p>
+
+        <div style="margin-top: 2.5rem; border-left: 3px solid var(--terra-pale); padding-left: 1.5rem;">
+          <p class="section-body" style="font-family: Georgia, serif; font-style: italic; color: var(--slate-dark); font-size: 1.25rem; line-height: 1.6;">
+            "Capability and capacity are not the same thing, and knowing the difference changes everything. It isn't about caring less, it is about making space to keep giving your energy, just to the right things."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- PROCESS -->
+  <section class="process" id="work">
+    <div class="container" style="position: relative;">
+      
+      <div class="process-headings">
+        <p class="section-tag">How we work together</p>
+        <h2 class="section-title">Your ecosystem of support.</h2>
+      </div>
+
+      <div class="process-horizontal">
+        
+        <!-- Node 1 -->
+        <div class="path-node-h">
+          <a href="contact.html" class="path-card path-card-1" style="display: block; text-decoration: none; cursor: pointer;">
+            <div class="step-num">✦</div>
+            <h4 class="step-title">Curious?</h4>
+            <p class="step-desc">Not sure if this is your thing? Pick a time that suits and let's find out together - no commitment, no awkwardness, just a quick 15-minute chat.</p>
+          </a>
+          <div class="path-line-right"></div>
+        </div>
+
+        <!-- Node 2 -->
+        <div class="path-node-h">
+          <a href="coaching.html" class="path-card path-card-2" style="display: block; text-decoration: none; cursor: pointer;">
+            <div class="step-num">✦</div>
+            <h4 class="step-title">1:1 Coaching</h4>
+            <p class="step-desc">One-to-one coaching journeys designed to help you reconnect with your values, find
+              clarity, and reroute toward your most authentic life, at your pace.</p>
+          </a>
+          <div class="path-line-right"></div>
+        </div>
+
+        <!-- Branches -->
+        <div class="pathway-fork-h">
+          
+          <!-- Top Branch -->
+          <div class="path-branch-h branch-top">
+            <div class="branch-line-v"></div>
+            
+            <a href="somatics.html" class="path-card path-card-3" style="display: block; text-decoration: none; cursor: pointer;">
+              <div class="step-num">✦</div>
+              <h4 class="step-title">Somatic Support</h4>
+              <p class="step-desc">Body-based practices that help release stored tension, reconnect you with your felt
+                sense, and support deep nervous-system regulation, because healing lives in the body too.</p>
+            </a>
+          </div>
+
+          <!-- Bottom Branch -->
+          <div class="path-branch-h branch-bottom">
+            <div class="branch-line-v"></div>
+            
+            <a href="events.html" class="path-card path-card-4" style="display: block; text-decoration: none; cursor: pointer;">
+              <div class="step-num">✦</div>
+              <h4 class="step-title">Yoga & Events</h4>
+              <p class="step-desc">Grounded, trauma-informed yoga that invites you to slow down, breathe, and return
+                home to yourself. Offered as standalone workshops and classes, separate from our coaching packages.</p>
+            </a>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div style="margin-top: 5rem; max-width: 1000px; margin-left: auto; margin-right: auto; padding: 0 1.5rem;">
+        <p style="font-family: Arial, sans-serif; font-size: 11px; line-height: 1.7; color: var(--ink-light); opacity: 0.6; text-align: center;">
+          <strong>Disclaimer:</strong> Coaching with Unfold is not a medical, therapeutic or counselling service and is not a substitute for professional mental health care, legal advice or any other licensed professional service. While I am a certified coach, I am not acting as a therapist, counsellor or legal advisor. The coaching support I offer is intended to complement, not replace, any professional care you may already be receiving.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <p class="section-tag">Testimonials</p>
+      <h2 class="section-title"><em>What it feels like to UnFold...</em></h2>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <p class="testi-text">"Kelly is such an incredible and intuitive coach and an amazing listener. Kelly provided a safe space which always made me feel comfortable to open to her"</p>
+          <p class="testi-name">Claire (Christchurch)</p>
+        </div>
+        <div class="testi-card">
+          <p class="testi-text">"I loved being coached by Kelly. She has such a warmth and gravity to her. I feel like Kelly really understood where I was coming from and she provided a safe and authentic environment to explore. If you're after a coach that will meet you where you are and listen wholly with compassion, I would definitely recommend Kelly"</p>
+          <p class="testi-name">Laurel (Wanaka)</p>
+        </div>
+        <div class="testi-card">
+          <p class="testi-text">"I have had the pleasure of being coached by Kelly and found her to be warm, fun and engaging. Her intuitive questions, wise consideration and thoughtful comments invited me to search more deeply and uncover new helpful insights about myself. This enabled me to find new pathways forward. I would highly recommend her as a life coach"</p>
+          <p class="testi-name">Rach (Hokitika)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div style="display: flex; align-items: center; gap: 2rem; max-width: 900px; justify-content: center; margin: 0 auto;">
+        <img src="1.png" alt="UnFold Logo" style="height: 160px; width: auto; display: block;">
+        <p class="footer-desc" style="max-width: 380px; text-align: center; margin: 0 1rem;">Unfold offers nervous system centred coaching for parents, leaders and humans navigating the demands of life across all its roles. Sessions are held online in Ōtautahi Christchurch and across Aotearoa New Zealand, with in person sessions available on request.</p>
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
+          <img src="RYT200%20copy.png" alt="RYT 200 Certification" style="height: 100px; width: auto; display: block; opacity: 0.9;">
+          <img src="Anzcal%20badge.avif" alt="ANZCAL Registered Coach" style="height: 100px; width: auto; display: block; opacity: 0.9;">
+        </div>
+      </div>
+      <div class="footer-links-wrap">
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="about.html">A little about me</a></li>
+
+            <li><a href="coaching.html">Coaching</a></li>
+            <li><a href="somatics.html">Somatics</a></li>
+            <li><a href="events.html">Yoga/Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="contact.html">Let's chat</a></li>
+            <li><a href="mailto:kelly@unfoldcoaching.co.nz">Email</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 UnFold Coaching. Christchurch, New Zealand.</p>
+    </div>
+  </footer>
+
+  <script>
+    let lastScrollY = window.scrollY;
+    const navbar = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 80) {
+        navbar.style.transform = 'translateY(calc(-100% - 25px))';
+      } else {
+        navbar.style.transform = 'translateY(0)';
+      }
+      lastScrollY = window.scrollY;
+    });
+
+    const observerOptions = { threshold: 0.15 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal, .fade-in, section, .offering-card, .testi-card, .price-card, .step').forEach(el => {
+      if (!el.classList.contains('reveal') && !el.classList.contains('fade-in')) {
+        el.classList.add('reveal');
+      }
+      observer.observe(el);
+    });
+  </script>
+</body>
+
+</html>
