@@ -478,7 +478,22 @@ footer { background: #c8bdb0; color: var(--ink); padding: 1.5rem 2rem 1rem; marg
 .footer-desc { font-family: Arial, sans-serif; font-size: 14px; color: rgba(44, 31, 20, 0.8); }
 .footer-col h4 { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
 .footer-col ul { list-style: none; }
-.footer-col ul li a { color: var(--ink-light); text-decoration: none; font-size: 13px; }
+.footer-badges {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.footer-badges img:first-child {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+.footer-badges img:last-child {
+  height: 110px;
+  width: auto;
+  object-fit: contain;
+}
 
 @media (max-width: 768px) {
   nav { top: 10px; left: 1rem; right: 1rem; }
