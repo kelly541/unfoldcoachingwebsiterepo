@@ -5,9 +5,17 @@
   "main": "index.html",
   "scripts": {
     "start": "serve .",
-    "swap": "node swap.js"
+    "swap": "node swap.js",
+    "build:analytics": "esbuild analytics.js --bundle --format=esm --outfile=analytics.bundle.js",
+    "build": "npm run build:analytics"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  }
 }
