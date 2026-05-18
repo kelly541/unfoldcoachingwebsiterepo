@@ -598,6 +598,22 @@
       background: radial-gradient(circle at 30% 30%, var(--terra-light), var(--terra)); 
       border-radius: 48% 52% 50% 50% / 50% 50% 48% 52%; 
     }
+    .optional-tag {
+      display: inline-block;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 0.75rem;
+      opacity: 0.9;
+    }
+
     .process-headings {
       position: absolute;
       top: 0;
@@ -759,15 +775,19 @@
         flex-direction: column;
         gap: 3rem;
       }
-      .branch-top .branch-line-v, .branch-bottom .branch-line-v {
+      .branch-top .branch-line-v {
         display: none;
       }
-      .branch-top .branch-line-h, .branch-bottom .branch-line-h {
+      .branch-bottom .branch-line-v {
+        display: block;
+        position: absolute;
         top: -3rem;
         left: 50%;
         width: 2px;
         height: 3rem;
         transform: translateX(-50%);
+        background: var(--slate);
+        opacity: 0.4;
       }
     }
 
@@ -1289,6 +1309,7 @@
             
             <a href="somatics.html" class="path-card path-card-3" style="display: block; text-decoration: none; cursor: pointer;">
               <div class="step-num">✦</div>
+              <div class="optional-tag">Optional Offering</div>
               <h4 class="step-title">Somatic Support</h4>
               <p class="step-desc">Body-based practices that help release stored tension, reconnect you with your felt
                 sense, and support deep nervous-system regulation, because healing lives in the body too.</p>
@@ -1301,6 +1322,7 @@
             
             <a href="events.html" class="path-card path-card-4" style="display: block; text-decoration: none; cursor: pointer;">
               <div class="step-num">✦</div>
+              <div class="optional-tag">Optional Offering</div>
               <h4 class="step-title">Yoga & Events</h4>
               <p class="step-desc">Grounded, trauma-informed yoga that invites you to slow down, breathe, and return
                 home to yourself. Offered as standalone workshops and classes, separate from our coaching packages.</p>
