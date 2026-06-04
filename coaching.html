@@ -274,6 +274,8 @@
       padding-top: 3.5rem;
     }
     .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .pricing-grid-1 { display: grid; grid-template-columns: 1fr; max-width: 450px; margin: 3rem auto 5rem; gap: 1.5rem; }
+    .pricing-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); max-width: 900px; margin: 3rem auto 0; gap: 1.5rem; }
     
     .price-card { 
       background: var(--white); 
@@ -430,7 +432,7 @@
       .hero-left { text-align: center; }
       .hero-sub { margin: 0 auto 2rem; }
       .hero-right { max-width: 360px; justify-self: center; }
-      .pricing-grid { grid-template-columns: 1fr; }
+      .pricing-grid, .pricing-grid-2 { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -460,64 +462,68 @@
   <!-- PRICING -->
   <section class="pricing" id="pricing">
     <div class="container">
-      <p class="section-tag">Invest in yourself</p>
-      <h2 class="section-title">Choose your journey.</h2>
+      <p class="section-tag">Not sure where to start?</p>
+      <h2 class="section-title" style="margin-bottom: 1rem;">Start with one session.</h2>
       <svg class="wavy-line center-wavy" viewBox="0 0 100 20" style="text-align:center;"><path d="M0 10 Q 12.5 0, 25 10 T 50 10 T 75 10 T 100 10"/></svg>
-      <p style="font-family: Arial, sans-serif; font-size: 15px; color: var(--ink-light); text-align: center; margin-top: -0.5rem; margin-bottom: 3.5rem; opacity: 0.8; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">Sessions are available online or by phone (in-person available on request). We will space our sessions at a pace that feels right for you, finding regular intervals that support a steady rhythm while respecting your capacity.</p>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <p class="price-label">Single session</p>
+      <p style="font-family: Arial, sans-serif; font-size: 15px; color: var(--ink-light); text-align: center; margin-top: -0.5rem; margin-bottom: 3.5rem; opacity: 0.8; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">I appreciate that options can be overwhelming when you are juggling a lot already, so the Compass session might be a good place to start. We can work together in this longer session to get some clarity around what's taking up all the space, what matters to you most, and what might be getting in the way. Don't worry, you don't need to have the answers to begin, that's what this space is for.</p>
+      
+      <div class="pricing-grid-1">
+        <div class="price-card highlighted">
           <h3 class="price-name">The Compass</h3>
           <div class="price-amount">$200 <span>NZD</span></div>
+          <p style="font-family: Arial, sans-serif; font-size: 13px; color: var(--ink-light); opacity: 0.8; margin-top: -1rem; margin-bottom: 1.5rem; font-style: italic;">Online, by phone or in-person (by request)</p>
           <div class="price-divider"></div>
           <ul class="price-features">
-            <li>A 90 minute deep dive to map your current landscape and set clear intentions</li>
-            <li>Values and strengths exploration to help you discern between capability and true capacity</li>
-            <li>Targeted boundary setting support to protect your time and energy</li>
-            <li>A clear, grounded starting point for your personal UnFolding</li>
+            <li>90 minutes</li>
+            <li>Values and strengths exploration, a look at where your energy is going, and a grounded starting point for whatever comes next.</li>
           </ul>
-          <p class="price-note">*Should you choose to continue with a package after your Compass Session, $100 of the session fee is deductible from the total package price.</p>
-
-        </div>
-        <div class="price-card highlighted">
-          <p class="price-label">Most popular</p>
-          <h3 class="price-name">The UnFolding</h3>
-          <div class="price-amount">$495 <span>NZD · 3 sessions</span></div>
-          <div class="price-divider"></div>
-          <ul class="price-features">
-            <li>Three 60 minute sessions to begin stripping back inherited patterns</li>
-            <li>Identifying where overwhelm is showing up and uncovering the 'why' behind it</li>
-            <li>Exploring your core values and strengths to build a foundation for change</li>
-            <li>Integration of somatic practices for nervous-system regulation</li>
-            <li>Gentle weekly check-in via email to help anchor your progress and reflection</li>
-          </ul>
-          <p class="price-note">*Additional sessions are available at a discounted rate, acknowledging that meaningful change takes as long as it takes. We’ll always space our work in a way that respects your own pace and process.</p>
-
-        </div>
-        <div class="price-card">
-          <p class="price-label">Full container</p>
-          <h3 class="price-name">The Deep UnFold</h3>
-          <div class="price-amount">$900 <span>NZD · 6 sessions</span></div>
-          <div class="price-divider"></div>
-          <ul class="price-features">
-            <li>Six 60 minute sessions for profound, sustainable transformation</li>
-            <li>Client-led intentions to ensure our work together respects your individual rhythm</li>
-            <li>Deep work to close the gap between who you genuinely are and who you feel you have to be</li>
-            <li>Ongoing boundary setting and capacity-building for life and leadership</li>
-            <li>Gentle weekly check-in via email/text: a space to reflect, or simply notice what is coming up for you</li>
-            <li>Tailored nervous-system resources to support your long-term recalibration</li>
-          </ul>
-          <p class="price-note">*Additional sessions are available at a discounted rate, acknowledging that meaningful change takes as long as it takes. We’ll always space our work in a way that respects your own pace and process.</p>
-
+          <p class="price-note">*If you decide to continue into a set of sessions, $100 comes off the price.</p>
         </div>
       </div>
+
+      <p class="section-tag" style="margin-top: 2rem;">If you do want to keep going</p>
+      <h2 class="section-title">I'm guided by you when it comes to the number of sessions and the spacing between them. We are all different.</h2>
+      <svg class="wavy-line center-wavy" viewBox="0 0 100 20" style="text-align:center;"><path d="M0 10 Q 12.5 0, 25 10 T 50 10 T 75 10 T 100 10"/></svg>
+
+      
+      <div class="pricing-grid-2">
+        <div class="price-card">
+          <p class="price-label">3 × 60 min · $165 per session</p>
+          <h3 class="price-name">A set of 3 sessions</h3>
+          <div class="price-amount">$495<sup style="font-size: 16px; margin-left: 1px;">*</sup> <span>NZD</span></div>
+          <p style="font-family: Arial, sans-serif; font-size: 13px; color: var(--ink-light); opacity: 0.8; margin-top: -1rem; margin-bottom: 1.5rem; font-style: italic;">Online, by phone or in-person (by request)</p>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li>You might be working through something specific such as a life transition, a pattern that keeps on showing up, or are looking to make sense of what you actually want.</li>
+            <li>Maybe you just need some dedicated time and support to reconnect with who you are, what you value and where you can make life a little more sustainable</li>
+            <li>Accessible tools/resources to help you navigate communication, boundary-setting and integration</li>
+            <li>Nervous-system centred practices woven in, where helpful</li>
+            <li>I offer a check-in between sessions by email or text, if this feels right for you</li>
+          </ul>
+          <p class="price-note">*Additional sessions can be added at a reduced rate.</p>
+        </div>
+        <div class="price-card">
+          <p class="price-label">6 × 60 min · $150 per session</p>
+          <h3 class="price-name">A set of 6 sessions</h3>
+          <div class="price-amount">$900<sup style="font-size: 16px; margin-left: 1px;">*</sup> <span>NZD</span></div>
+          <p style="font-family: Arial, sans-serif; font-size: 13px; color: var(--ink-light); opacity: 0.8; margin-top: -1rem; margin-bottom: 1.5rem; font-style: italic;">Online, by phone or in-person (by request)</p>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li>You might be deep in the noise of life, wearing many hats and wanting to dive deeper into what you are navigating and get clear about how you carry it going forward</li>
+            <li>Maybe you are looking for longer term steady support. A calm and consistent space to think, reflect and recalibrate over time.</li>
+            <li>Accessible tools/resources to help you navigate communication, boundary-setting and integration</li>
+            <li>Nervous-system centred practices woven in, where helpful</li>
+            <li>I offer a check-in between sessions by email or text, if this feels right for you</li>
+          </ul>
+          <p class="price-note">*Additional sessions can be added at a reduced rate.</p>
+        </div>
+      </div>
+
+
       
       <div style="max-width: 1280px; margin: 4rem auto 0; padding: 0 1rem;">
         <div style="font-family: Arial, sans-serif; font-size: 11px; line-height: 1.7; color: var(--ink-light); opacity: 0.7; border-top: 1px solid rgba(44, 31, 20, 0.1); padding-top: 2.5rem; text-align: left;">
-          <p style="margin-bottom: 1.2rem;"><strong>Disclaimer:</strong> Coaching with Unfold is not a medical, therapeutic or counselling service and is not a substitute for professional mental health care, legal advice or any other licensed professional service. While I am a certified coach, I am not acting as a therapist, counsellor or legal advisor. The coaching support I offer is intended to complement, not replace, any professional care you may already be receiving.</p>
-          <p style="margin-bottom: 1.2rem;">Outcomes will always vary based on individual needs and circumstances, and clients engage in the coaching process voluntarily, taking full responsibility for the decisions and actions that arise from it.</p>
-          <p style="margin-bottom: 1.2rem;">Your privacy matters. Everything shared within our coaching relationship is treated with complete confidentiality. The only exceptions are situations where there is a risk of harm to yourself or others, or where disclosure is required by law.</p>
-          <p>If you are unsure whether coaching is the right fit for you right now, the best place to start is a conversation.</p>
+          <p><strong>Disclaimer:</strong> Coaching with Unfold is not a medical, therapeutic or counselling service and is not a substitute for professional mental health care or any other licensed professional service. Everything shared is treated with complete confidentiality, except where there is risk of harm to yourself or others, or where disclosure is required by law. If you're unsure whether coaching is right for you right now, the best place to start is a conversation.</p>
         </div>
       </div>
     </div>
