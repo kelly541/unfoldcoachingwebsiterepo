@@ -149,9 +149,8 @@
       transition: 0.3s;
     }
 
-    /* HERO */
     .hero {
-      background: linear-gradient(to right, rgba(245, 237, 227, 0) 50%, rgba(245, 237, 227, 0.85) 85%, rgba(245, 237, 227, 0.98) 100%), url('photo.jpg') center/cover no-repeat;
+      background: var(--slate-dark);
       display: block;
       position: relative;
       overflow: hidden;
@@ -160,7 +159,7 @@
       margin: 0 0 1rem 0;
       padding: 0;
       border-radius: 0;
-      min-height: 600px;
+      min-height: 380px;
     }
 
     .mobile-hero-photo-wrapper {
@@ -171,8 +170,8 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      min-height: 600px;
-      padding: 160px 0 3.2rem 3.5rem;
+      min-height: 380px;
+      padding: 110px 0 2rem 3.5rem;
       max-width: 1280px;
       margin: 0 auto;
     }
@@ -205,20 +204,20 @@
       font-size: 11px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--slate);
+      color: var(--terra-pale);
       margin-bottom: 0.5rem;
     }
 
     .hero-title {
       font-size: clamp(42px, 5.5vw, 82px);
       line-height: 1.05;
-      color: var(--ink);
+      color: var(--white);
       margin-bottom: 0.8rem;
       text-align: right;
     }
 
     .hero-title em {
-      color: var(--terra);
+      color: var(--terra-light);
       font-style: italic;
     }
 
@@ -226,7 +225,7 @@
       font-family: Arial, sans-serif;
       font-size: 17px;
       line-height: 1.6;
-      color: var(--ink-light);
+      color: var(--cream);
       max-width: 480px;
       margin-bottom: 1.8rem;
       text-align: right;
@@ -279,8 +278,8 @@
 
     .btn-outline {
       background: transparent;
-      color: var(--ink-light);
-      border: 1.5px solid var(--ink-light);
+      color: var(--white);
+      border: 1.5px solid var(--white);
       padding: 13px 32px;
       border-radius: 40px;
       font-family: Arial, sans-serif;
@@ -308,7 +307,7 @@
       font-size: 11px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--ink-light);
+      color: var(--cream);
     }
 
     /* ABOUT UNFOLD */
@@ -329,7 +328,8 @@
     .about-story-image {
       width: 100%;
       height: 100%;
-      min-height: 500px;
+      min-height: 450px;
+      max-height: 550px;
       background: var(--terra-pale);
       position: relative;
       overflow: hidden;
@@ -341,7 +341,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: center 25%;
       display: block;
     }
 
@@ -1072,7 +1072,7 @@
       .hero {
         display: flex !important;
         flex-direction: column !important;
-        background: var(--cream) !important;
+        background: var(--slate-dark) !important;
         min-height: auto !important;
         padding: 130px 1.5rem 0 !important;
         text-align: center !important;
@@ -1119,7 +1119,7 @@
         text-align: center !important;
         max-width: 420px !important;
         font-size: 16px !important;
-        color: var(--ink-light) !important;
+        color: var(--cream) !important;
       }
       .hero-btns {
         display: flex !important;
@@ -1152,7 +1152,7 @@
         height: 360px !important;
         overflow: hidden !important;
         position: relative !important;
-        background: var(--cream) !important;
+        background: var(--slate-dark) !important;
         border-radius: 0 !important;
         box-shadow: none !important;
       }
@@ -1216,61 +1216,39 @@
   <section class="hero">
     <div class="hero-intro">
       <div class="hero-left">
-        <p class="hero-tag">Christchurch, New Zealand</p>
-        <h1 class="hero-title">Come back to <em>yourself.</em></h1>
+        <p class="hero-tag">Ōtautahi Christchurch · Online · Aotearoa NZ</p>
+        <h1 class="hero-title">Come back<br>to <em>yourself.</em></h1>
         <svg class="wavy-line" viewBox="0 0 100 20" style="margin-bottom: 1rem;"><path d="M0 10 Q 12.5 0, 25 10 T 50 10 T 75 10 T 100 10"/></svg>
-        <p class="hero-sub">A grounded, values-led space to help you reconnect with what matters and move forward in a way that feels like your own.</p>
+        <p class="hero-sub" style="max-width: 520px;">Capable people are surprisingly good at running themselves into the ground. Capability and capacity aren't the same thing, and when we treat them like they are, something eventually gives.<br><br>If any of that sounds familiar, you're in the right place.</p>
 
         <div class="hero-btns">
           <a href="contact.html" class="btn-primary">Work with me</a>
           <a href="about.html" class="btn-outline">A little about me</a>
         </div>
         <div class="mobile-hero-photo-wrapper">
-          <img src="photo.jpg" alt="Kelly Akehurst - Coach" class="mobile-hero-photo">
+          <img src="heroimage.jpeg" alt="River and mountain landscape" class="mobile-hero-photo">
         </div>
       </div>
     </div>
-    <div class="hero-location">📍 Christchurch, NZ · Online</div>
+    <div class="hero-location">📍 Ōtautahi Christchurch · Online · Aotearoa NZ</div>
   </section>
 
   <!-- ABOUT UNFOLD -->
   <section class="about-story" id="about-unfold">
     <div class="about-story-layout">
       <div class="about-story-image">
-        <img src="heroimage.jpeg" alt="River and mountain landscape">
+        <img src="casual%20photo.jpg" alt="Kelly Akehurst - Casual Portrait">
       </div>
       <div class="about-story-content">
-        <p class="section-tag">About UnFold</p>
-        <h2 class="section-title">We are all human...</h2>
-        <p class="section-body" style="margin-bottom:1.5rem;">At Unfold I offer nervous-system centred coaching and a calm, shame-free space to get honest about life and how you are navigating it.</p>
+        <p class="section-tag">A little about me</p>
+        <h2 class="section-title">Oh hey there, I'm Kelly.</h2>
+        <p class="section-body" style="margin-bottom:1.5rem;">I'm a coach, a mum of teenagers, a keeper of dogs and chickens, and someone who spent a long time being much better at showing up for everyone else than for myself.</p>
         
-        <p class="section-body" style="margin-bottom:1.5rem;">The coaching support I offer is informed by lived experience and backed by my ANZCAL coaching accreditation, RYT 200, upcoming Integrative Somatic certification and an almost 15-year career in healthcare. I have walked this path professionally and personally, and I know it looks different for everyone.</p>
+        <p class="section-body" style="margin-bottom:1.5rem;">My background is in healthcare. Nearly 15 years as a Registered Anaesthetic Technician across clinical, leadership and education roles taught me a lot about people, pressure, and what it actually takes to keep functioning under the weight of many hats. It also eventually taught me that functioning and flourishing aren't the same thing either.</p>
 
-        <p class="section-body" style="margin-bottom:1.5rem;">I work with a wide variety of people from parents and professionals through to leaders and humans holding it all together under the weight of many hats.</p>
+        <p class="section-body" style="margin-bottom:2.5rem;">Unfold grew out of my own process of slowing down, laying it all out, and getting honest about what actually mattered. That process is what I bring to every session.</p>
 
-        <p class="section-body" style="margin-bottom:1rem; font-weight: 600; color: var(--slate-dark);">Together we:</p>
-        <ul style="list-style: none; padding: 0; margin-bottom: 2rem; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.7; color: var(--ink-light);">
-          <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-            <span style="position: absolute; left: 0; color: var(--terra);">•</span> Uncover where the overwhelm is actually showing up and why
-          </li>
-          <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-            <span style="position: absolute; left: 0; color: var(--terra);">•</span> Explore the gap between who you genuinely are and who you feel you have to be
-          </li>
-          <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-            <span style="position: absolute; left: 0; color: var(--terra);">•</span> Get clear on your values, your strengths and the beliefs that have been quietly holding you back
-          </li>
-          <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-            <span style="position: absolute; left: 0; color: var(--terra);">•</span> Build boundaries that are meaningful, felt and yours
-          </li>
-        </ul>
-
-        <p class="section-body" style="margin-bottom:2rem;">By gently bringing the mind and body into the work together, we can support your nervous-system while gaining the clarity to lead life as the most authentic and sustainable version of you.</p>
-
-        <div style="margin-top: 2.5rem; border-left: 3px solid var(--terra-pale); padding-left: 1.5rem;">
-          <p class="section-body" style="font-family: Georgia, serif; font-style: italic; color: var(--slate-dark); font-size: 1.25rem; line-height: 1.6;">
-            "Capability and capacity are not the same thing, and knowing the difference changes everything. It isn't about caring less, it is about making space to keep giving your energy, just to the right things."
-          </p>
-        </div>
+        <a href="about.html" style="font-family: Arial, sans-serif; font-size: 13px; color: var(--terra); text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; border-bottom: 1.5px solid var(--terra); padding-bottom: 4px;">Read more about me &rarr;</a>
       </div>
     </div>
   </section>
@@ -1281,69 +1259,43 @@
   <section class="process" id="work">
     <div class="container" style="position: relative;">
       
-      <div class="process-headings">
-        <p class="section-tag">How we work together</p>
-        <h2 class="section-title">Your ecosystem of support.</h2>
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <p class="section-tag" style="text-align: center;">How we work together</p>
+        <h2 class="section-title" style="text-align: center;">Sometimes you just need somewhere<br>to put it all down for a bit.</h2>
+        <p class="section-body" style="max-width: 700px; margin: 1.5rem auto 0; text-align: center;">Coaching with me is an opportunity to step back from the pace of things, let your mind settle, and have a proper look at what's going on. Together we figure out what you're carrying that might be put down, or at least carried differently.<br><br>We work at your pace. You decide when it's enough.</p>
       </div>
 
-      <div class="process-horizontal">
+      <div class="offerings-grid" style="margin-top: 0;">
         
-        <!-- Node 1 -->
-        <div class="path-node-h">
-          <a href="contact.html" class="path-card path-card-1" style="display: block; text-decoration: none; cursor: pointer;">
-            <div class="step-num">✦</div>
-            <h4 class="step-title">Curious?</h4>
-            <p class="step-desc">Not sure if this is your thing? Pick a time that suits and let's find out together - no commitment, no awkwardness, just a quick 15-minute chat.</p>
-          </a>
-          <div class="path-line-right"></div>
-        </div>
+        <!-- 1:1 Coaching -->
+        <a href="coaching.html" class="price-card" style="display: flex; text-decoration: none; cursor: pointer; height: 100%; text-align: center;">
+          <div style="font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.8rem; visibility: hidden;">Spacer</div>
+          <h4 style="font-size: 24px; font-family: Georgia, serif; font-weight: 500; color: var(--ink); margin-bottom: 1rem;">1:1 Coaching</h4>
+          <p style="font-family: Arial, sans-serif; font-size: 15px; line-height: 1.8; color: var(--ink-light); margin-bottom: 1.5rem;">A calm, shame-free space to get honest about life and how you're navigating it. I work with both mind and body, because that's where the real shifts tend to happen.</p>
+          <div style="color: var(--terra); font-size: 24px; margin-top: auto;">&rarr;</div>
+        </a>
 
-        <!-- Node 2 -->
-        <div class="path-node-h">
-          <a href="coaching.html" class="path-card path-card-2" style="display: block; text-decoration: none; cursor: pointer;">
-            <div class="step-num">✦</div>
-            <h4 class="step-title">1:1 Coaching</h4>
-            <p class="step-desc">I offer supportive coaching designed to help you reconnect with your values, find clarity and move forward with authenticity and sound boundaries.</p>
-          </a>
-          <div class="path-line-right"></div>
-        </div>
+        <!-- Somatic Support -->
+        <a href="somatics.html" class="price-card" style="display: flex; text-decoration: none; cursor: pointer; height: 100%; text-align: center;">
+          <div style="font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; color: var(--terra); margin-bottom: 0.8rem;">Optional</div>
+          <h4 style="font-size: 24px; font-family: Georgia, serif; font-weight: 500; color: var(--ink); margin-bottom: 1rem;">Somatic Support</h4>
+          <p style="font-family: Arial, sans-serif; font-size: 15px; line-height: 1.8; color: var(--ink-light); margin-bottom: 1.5rem;">Body-based practices I use to help release stored tension and support your nervous system, woven into our sessions where helpful, or available on their own.</p>
+          <div style="color: var(--terra); font-size: 24px; margin-top: auto;">&rarr;</div>
+        </a>
 
-        <!-- Branches -->
-        <div class="pathway-fork-h">
-          
-          <!-- Top Branch -->
-          <div class="path-branch-h branch-top">
-            <div class="branch-line-v"></div>
-            
-            <a href="somatics.html" class="path-card path-card-3" style="display: block; text-decoration: none; cursor: pointer;">
-              <div class="step-num">✦</div>
-              <div class="optional-tag">Optional Offering</div>
-              <h4 class="step-title">Somatic Support</h4>
-              <p class="step-desc">Body-based practices that help release stored tension, reconnect you with your felt
-                sense, and support deep nervous-system regulation, because healing lives in the body too.</p>
-            </a>
-          </div>
-
-          <!-- Bottom Branch -->
-          <div class="path-branch-h branch-bottom">
-            <div class="branch-line-v"></div>
-            
-            <a href="events.html" class="path-card path-card-4" style="display: block; text-decoration: none; cursor: pointer;">
-              <div class="step-num">✦</div>
-              <div class="optional-tag">Optional Offering</div>
-              <h4 class="step-title">Yoga & Events</h4>
-              <p class="step-desc">Grounded, trauma-informed yoga that invites you to slow down, breathe, and return
-                home to yourself. Offered as standalone workshops and classes, separate from our coaching packages.</p>
-            </a>
-          </div>
-          
-        </div>
+        <!-- Yoga & Events -->
+        <a href="events.html" class="price-card" style="display: flex; text-decoration: none; cursor: pointer; height: 100%; text-align: center;">
+          <div style="font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; color: var(--terra); margin-bottom: 0.8rem;">Optional</div>
+          <h4 style="font-size: 24px; font-family: Georgia, serif; font-weight: 500; color: var(--ink); margin-bottom: 1rem;">Yoga & Events</h4>
+          <p style="font-family: Arial, sans-serif; font-size: 15px; line-height: 1.8; color: var(--ink-light); margin-bottom: 1.5rem;">Grounded, trauma-informed yoga and workshops I offer as a place to slow down and come back to yourself, separate from coaching.</p>
+          <div style="color: var(--terra); font-size: 24px; margin-top: auto;">&rarr;</div>
+        </a>
       </div>
-      
-      <div style="margin-top: 5rem; max-width: 1000px; margin-left: auto; margin-right: auto; padding: 0 1.5rem;">
-        <p style="font-family: Arial, sans-serif; font-size: 11px; line-height: 1.7; color: var(--ink-light); opacity: 0.6; text-align: center;">
-          <strong>Disclaimer:</strong> Coaching with Unfold is not a medical, therapeutic or counselling service and is not a substitute for professional mental health care, legal advice or any other licensed professional service. While I am a certified coach, I am not acting as a therapist, counsellor or legal advisor. The coaching support I offer is intended to complement, not replace, any professional care you may already be receiving.
-        </p>
+
+      <div class="cta-section" style="max-width: 800px; margin: 4rem auto 0;">
+        <h3 class="cta-title" style="font-size: 32px;">Not sure?</h3>
+        <p class="cta-body" style="color: var(--white); margin-bottom: 2rem;">Come and have a chat with me first. Get a feel for whether I'm the right fit for you. No pressure either way.</p>
+        <a href="contact.html" class="btn-primary" style="background: var(--white); color: var(--slate-dark);">Fancy a chat?</a>
       </div>
     </div>
   </section>
@@ -1380,7 +1332,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <img src="1.png" alt="UnFold Logo" class="footer-logo-img">
-        <p class="footer-desc">Unfold offers nervous-system centred coaching for parents, leaders and humans navigating the demands of life across all its roles. Sessions are held online in Ōtautahi Christchurch and across Aotearoa New Zealand, with in person sessions available on request.</p>
+        <p class="footer-desc">Nervous-system centred coaching for parents, leaders and humans navigating the demands of life across all its roles. Ōtautahi Christchurch and online across Aotearoa New Zealand.</p>
         <div class="footer-badges">
           <img src="RYT200%20copy.png" alt="RYT 200 Certification">
           <img src="Anzcal%20badge.png" alt="ANZCAL Associate Badge">
@@ -1400,7 +1352,7 @@
         <div class="footer-col">
           <h4>Connect</h4>
           <ul>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Fancy a chat?</a></li>
             <li><a href="mailto:kelly@unfoldcoaching.co.nz">Email</a></li>
           </ul>
         </div>
