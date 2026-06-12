@@ -159,21 +159,34 @@
       margin: 0 0 1rem 0;
       padding: 0;
       border-radius: 0;
-      min-height: 380px;
+      height: 95vh;
+      min-height: 600px;
     }
 
     .mobile-hero-photo-wrapper {
       display: none;
     }
 
+    #hero-waves-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
     .hero-intro {
       display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      min-height: 380px;
-      padding: 110px 0 2rem 3.5rem;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      padding: 110px 2rem 2.5rem;
       max-width: 1280px;
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
     .footer-bottom {
@@ -191,12 +204,20 @@
 
     .hero-left {
       padding: 2rem 0;
-      max-width: 850px;
+      max-width: 600px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-end;
       text-align: right;
+      align-self: flex-end;
+    }
+
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
     }
 
     .hero-tag {
@@ -235,7 +256,6 @@
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-top: 1rem;
     }
 
     .btn-primary {
@@ -300,9 +320,6 @@
 
 
     .hero-location {
-      position: absolute;
-      bottom: 2rem;
-      left: 3rem;
       font-family: Arial, sans-serif;
       font-size: 11px;
       letter-spacing: 2px;
@@ -313,7 +330,7 @@
     /* ABOUT UNFOLD */
     .about-story {
       background: transparent;
-      padding: 2rem 0;
+      padding: 7vh 0 2rem;
       max-width: 1280px;
       margin: 0 auto 2rem;
     }
@@ -1073,6 +1090,7 @@
         display: flex !important;
         flex-direction: column !important;
         background: var(--slate-dark) !important;
+        height: auto !important;
         min-height: auto !important;
         padding: 130px 1.5rem 0 !important;
         text-align: center !important;
@@ -1081,11 +1099,18 @@
         overflow: visible !important;
       }
       .hero-intro {
-        display: block !important;
+        flex-direction: column !important;
+        height: auto !important;
         min-height: auto !important;
-        padding: 0 !important;
+        padding: 0 1.5rem 1.5rem !important;
         margin: 0 auto 0 !important;
         max-width: 100% !important;
+        justify-content: flex-start !important;
+      }
+      .hero-bottom {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1rem !important;
       }
       .hero-left {
         max-width: 100% !important;
@@ -1170,7 +1195,7 @@
         vertical-align: middle !important;
         box-shadow: none !important;
       }
-      .about-story { padding: 2rem 1.5rem 1.5rem; margin: 0 auto 1rem; text-align: left; }
+      .about-story { padding: 2rem 1.5rem 1.5rem !important; margin: 0 auto 1rem; text-align: left; }
       .about-story-layout { grid-template-columns: 1fr; gap: 1.7rem; }
       .about-story-image { display: none !important; }
       .offerings-grid, .steps, .testi-grid, .pricing-grid { grid-template-columns: 1fr; }
@@ -1214,23 +1239,24 @@
 
   <!-- HERO -->
   <section class="hero">
+    <canvas id="hero-waves-canvas"></canvas>
     <div class="hero-intro">
       <div class="hero-left">
-        <p class="hero-tag">Ōtautahi Christchurch · Online · Aotearoa NZ</p>
         <h1 class="hero-title">Come back<br>to <em>yourself.</em></h1>
         <svg class="wavy-line" viewBox="0 0 100 20" style="margin-bottom: 1rem;"><path d="M0 10 Q 12.5 0, 25 10 T 50 10 T 75 10 T 100 10"/></svg>
         <p class="hero-sub" style="max-width: 520px;">Capable people are surprisingly good at running themselves into the ground. Capability and capacity aren't the same thing, and when we treat them like they are, something eventually gives.<br><br>If any of that sounds familiar, you're in the right place.</p>
-
-        <div class="hero-btns">
-          <a href="contact.html" class="btn-primary">Work with me</a>
-          <a href="about.html" class="btn-outline">A little about me</a>
-        </div>
         <div class="mobile-hero-photo-wrapper">
           <img src="heroimage.jpeg" alt="River and mountain landscape" class="mobile-hero-photo">
         </div>
       </div>
+      <div class="hero-bottom">
+        <div class="hero-location"><svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 12px; height: 12px; display: inline-block; vertical-align: -1px; margin-right: 6px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Ōtautahi Christchurch · Online · Aotearoa NZ</div>
+        <div class="hero-btns">
+          <a href="contact.html" class="btn-primary">Work with me</a>
+          <a href="about.html" class="btn-outline">A little about me</a>
+        </div>
+      </div>
     </div>
-    <div class="hero-location">📍 Ōtautahi Christchurch · Online · Aotearoa NZ</div>
   </section>
 
   <!-- ABOUT UNFOLD -->
@@ -1409,6 +1435,171 @@
       }
       observer.observe(el);
     });
+
+    // --- HERO DYNAMIC CANVAS WAVES ---
+    (function() {
+      const canvas = document.getElementById('hero-waves-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const heroSection = document.querySelector('.hero');
+      if (!heroSection) return;
+
+      let lastWidth = 0;
+      let lastHeight = 0;
+
+      function resizeCanvas() {
+        const rect = heroSection.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        canvas.style.width = `${rect.width}px`;
+        canvas.style.height = `${rect.height}px`;
+        ctx.scale(dpr, dpr);
+        lastWidth = rect.width;
+        lastHeight = rect.height;
+      }
+
+      // Initial resize
+      resizeCanvas();
+
+      let mouse = {
+        x: -1000,
+        y: -1000,
+        targetX: -1000,
+        targetY: -1000,
+        influence: 0,
+        targetInfluence: 0
+      };
+
+      heroSection.addEventListener('mousemove', (e) => {
+        const rect = heroSection.getBoundingClientRect();
+        mouse.targetX = e.clientX - rect.left;
+        mouse.targetY = e.clientY - rect.top;
+        mouse.targetInfluence = 1;
+      });
+
+      heroSection.addEventListener('mouseenter', (e) => {
+        const rect = heroSection.getBoundingClientRect();
+        mouse.targetX = e.clientX - rect.left;
+        mouse.targetY = e.clientY - rect.top;
+        mouse.targetInfluence = 1;
+      });
+
+      heroSection.addEventListener('mouseleave', () => {
+        mouse.targetInfluence = 0;
+      });
+
+      const waves = [
+        {
+          baseYFraction: 0.45,
+          amplitude: 70,
+          frequency: 0.0025,
+          speed: 0.003,
+          phase: 0,
+          color: 'rgba(254, 250, 246, 0.02)',
+          strokeColor: 'rgba(254, 250, 246, 0.07)'
+        },
+        {
+          baseYFraction: 0.58,
+          amplitude: 55,
+          frequency: 0.004,
+          speed: 0.005,
+          phase: 2.5,
+          color: 'rgba(106, 144, 176, 0.04)',
+          strokeColor: 'rgba(106, 144, 176, 0.11)'
+        },
+        {
+          baseYFraction: 0.72,
+          amplitude: 40,
+          frequency: 0.006,
+          speed: 0.008,
+          phase: 4.8,
+          color: 'rgba(245, 237, 227, 0.02)',
+          strokeColor: 'rgba(245, 237, 227, 0.07)'
+        }
+      ];
+
+      let time = 0;
+
+      function animate() {
+        const rect = heroSection.getBoundingClientRect();
+        if (rect.width !== lastWidth || rect.height !== lastHeight) {
+          resizeCanvas();
+        }
+
+        const width = lastWidth;
+        const height = lastHeight;
+
+        ctx.clearRect(0, 0, width, height);
+
+        time += 0.5;
+
+        const scrollY = window.scrollY;
+        // Modulate phase/frequency based on scroll position
+        const scrollFactor = scrollY * 0.0018;
+
+        // Smooth mouse influence & position lerping
+        mouse.influence += (mouse.targetInfluence - mouse.influence) * 0.05;
+        if (mouse.influence > 0.01) {
+          if (mouse.x < 0 && mouse.targetX >= 0) {
+            mouse.x = mouse.targetX;
+            mouse.y = mouse.targetY;
+          } else {
+            mouse.x += (mouse.targetX - mouse.x) * 0.08;
+            mouse.y += (mouse.targetY - mouse.y) * 0.08;
+          }
+        }
+
+        waves.forEach((wave) => {
+          ctx.beginPath();
+          
+          // Subtle vertical parallax scrolling effect on the waves
+          let baseY = height * wave.baseYFraction - (scrollY * 0.12);
+
+          // Modulate amplitude with scroll
+          const currentAmp = wave.amplitude + Math.sin(scrollFactor + wave.phase) * 5;
+
+          ctx.moveTo(0, height);
+
+          // Step by 8px for performance and smooth Bezier-like lines
+          for (let x = 0; x <= width; x += 8) {
+            let angle = x * wave.frequency + (time * wave.speed) + wave.phase + (scrollFactor * 0.4);
+            let y = baseY + Math.sin(angle) * currentAmp;
+
+            // Cursor interaction
+            if (mouse.influence > 0.01) {
+              const dx = x - mouse.x;
+              const dy = y - mouse.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+
+              if (dist < 280) {
+                const force = ((280 - dist) / 280) * mouse.influence;
+                // Mold wave towards cursor vertically
+                y += (mouse.y - y) * force * 0.55;
+                // Add a dynamic ripple
+                y += Math.sin(dist * 0.06 - time * 0.15) * 8 * force;
+              }
+            }
+
+            ctx.lineTo(x, y);
+          }
+
+          ctx.lineTo(width, height);
+          ctx.closePath();
+
+          ctx.fillStyle = wave.color;
+          ctx.fill();
+
+          ctx.strokeStyle = wave.strokeColor;
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    })();
   </script>
 </body>
 
