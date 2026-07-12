@@ -198,6 +198,23 @@
       font-style: italic;
     }
 
+    .bio-section {
+      display: grid;
+      grid-template-columns: 1fr 40%;
+      gap: 3rem;
+      align-items: stretch;
+      margin-bottom: 2rem;
+    }
+    
+    .bio-section .header-image {
+      float: none;
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      margin: 0 -5.3% 0 0;
+      border-radius: 40px;
+    }
+
     .story-inline {
       font-family: Arial, sans-serif;
       font-size: 16px;
@@ -207,6 +224,42 @@
 
     .story-inline p {
       margin-bottom: 1.4rem;
+    }
+
+    .story-inline h2 {
+      font-family: Georgia, serif;
+      font-size: 24px;
+      color: var(--slate);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      font-style: italic;
+    }
+
+    .story-inline ul.credentials-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 1.8rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .story-inline ul.credentials-list li {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      color: var(--ink-light);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .story-inline ul.credentials-list li span.bullet {
+      color: var(--terra);
+      font-size: 12px;
+      flex-shrink: 0;
+      margin-top: 6px;
     }
 
     .story-closing {
@@ -363,6 +416,15 @@
     }
 
     @media (max-width: 992px) {
+      .bio-section {
+        grid-template-columns: 1fr;
+      }
+      .bio-section .header-image {
+        margin: 0 0 2rem 0;
+        border-radius: 40px;
+        height: auto;
+        aspect-ratio: 4/5;
+      }
       nav { top: 10px; left: 1rem; right: 1rem; padding: 0 1.5rem; }
       .nav-links {
         position: fixed;
@@ -402,6 +464,38 @@
       .cred-divider { width: 60px; height: 1px; }
       .btn-outline { margin-left: 0; margin-top: 1rem; }
     }
+
+    /* ACCORDION STYLES */
+    .accordion-icon { display: none; }
+    @media (min-width: 993px) {
+      .accordion-content { max-height: none !important; }
+    }
+    @media (max-width: 992px) {
+      .accordion-header { 
+        cursor: pointer; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        border-bottom: 1px solid rgba(44, 31, 20, 0.1); 
+        padding-bottom: 0.5rem; 
+      }
+      .accordion-icon { 
+        display: block; 
+        font-style: normal; 
+        font-weight: normal; 
+        font-size: 28px; 
+        line-height: 1; 
+        transition: transform 0.3s; 
+        color: var(--terra); 
+      }
+      .accordion-header.active .accordion-icon { transform: rotate(45deg); }
+      .accordion-content { 
+        max-height: 0; 
+        overflow: hidden; 
+        transition: max-height 0.4s ease-out; 
+      }
+      .accordion-content p:first-child { margin-top: 1rem; }
+    }
   </style>
 </head>
 
@@ -429,26 +523,59 @@
 
   <!-- PAGE HEADER + STORY (image floats right, text wraps beside and below) -->
   <div class="page-header reveal">
-    <div class="header-image">
-      <img src="With%20dogs.jpg" alt="Kelly – Life Coach, Christchurch NZ">
-    </div>
-
     <p class="page-tag">A little about me</p>
-    <h1 class="page-title">Oh Hey There,<br>I'm <em>Kelly...</em></h1>
+    <h1 class="page-title">Oh Hey There, I'm <em>Kelly...</em></h1>
     <svg class="wavy-line" viewBox="0 0 100 20"><path d="M0 10 Q 12.5 0, 25 10 T 50 10 T 75 10 T 100 10"/></svg>
 
     <div class="story-inline">
-      <p>I am a wife, a mum of teenagers, keeper of dogs and chickens, a lifelong learner and an all-round imperfect human. When I'm not coaching you'll find me with family and friends, walking and hiking in nature, failing with joy in improv and acting classes, and generally embracing a bit of tomfoolery wherever possible. I believe that life doesn't just happen to us, we also happen to life, and while we often forget this, it is a belief that can be incredibly empowering.</p>
+      <div class="bio-section">
+        <div class="bio-text">
+          <p>And I’m a wife, a mum of teenagers, keeper of dogs and chickens, a lifelong learner and an all-round imperfect human. When I'm not coaching, you'll find me with family and friends, walking and hiking in nature, failing with joy in improv classes, and generally embracing a bit of tomfoolery wherever possible. I believe that life doesn't just happen to us, we also happen to life, and while we often forget this, I find it quietly empowering.</p>
 
-      <p>Professionally, my background is in healthcare. An almost 15-year career as a Registered Anaesthetic Technician across clinical, leadership and education roles taught me a great deal about people, pressure and the privilege of walking alongside others at their most vulnerable. It also taught me something equally important: how we show up for and as ourselves matters just as much.</p>
+          <h2>My Background</h2>
+          
+          <p>My background is in healthcare. An almost 15-year career as a Registered Anaesthetic Technician across clinical, leadership and education roles has taught me a great deal about people, pressure and the privilege of walking alongside others at their most vulnerable. It has also given me a deepened respect for something that often goes unspoken in clinical work: how we show up for ourselves matters, just as much as how we show up for everyone else.</p>
 
-      <p>Like most people who give a lot, I was better at the former than the latter for a long time. Alongside a demanding career I navigated grief, sudden loss, debilitating health challenges and the particular kind of pressure that comes from navigating personal and family life while neglecting to keep enough in reserve for yourself. I did what capable people so often do, I held it together and kept going. I'm clearly both incredibly stubborn and a ridiculously slow learner, but eventually the right question found me: was I still heading in the right direction?</p>
+          <ul class="credentials-list">
+            <li><span class="bullet">✦</span> <span>ANZCAL Registered Coach</span></li>
+            <li><span class="bullet">✦</span> <span>200HR Registered Yoga Teacher</span></li>
+            <li><span class="bullet">✦</span> <span>300HR ISF-Certified Integrative Somatic Facilitator<span style="opacity: 0.8; margin-left: 4px;">(Graduating September 2026)</span></span></li>
+            <li><span class="bullet">✦</span> <span>GradCertHlth<span style="opacity: 0.8; margin-left: 4px;">(Graduating November 2026)</span></span></li>
+            <li><span class="bullet">✦</span> <span>DipAppSci (AnaeTech)</span></li>
+          </ul>
+        </div>
+        
+        <div class="header-image">
+          <img src="With%20dogs.jpg" alt="Kelly – Life Coach, Christchurch NZ">
+        </div>
+      </div>
 
-      <p>That question found me in 2024. What followed was a process of stripping back inherited patterns and perceived expectations, and coming home to what was actually mine. Because we cannot think our way to wholeness. Real change happens when we come back to the body, back to what we feel underneath all the noise, back to what actually matters. Getting honest about my values, my direction and my way of moving through the world gave me something I hadn't had in years: a solid and authentic foundation to move forward from.</p>
+      <h2 class="accordion-header">My Story <span class="accordion-icon">+</span></h2>
+      <div class="accordion-content">
+        <p>I consider myself incredibly lucky to have built a life full of things I deeply care about. I’ve always wanted to be there for the people and work I cherish, so it took me an embarrassingly long time to clock the balance slowly shifting in my own world.</p>
+        
+        <p>A demanding career alongside heavy seasons of personal challenge - grief, sudden loss, professional upheaval, and difficult health issues - meant I was always subconsciously gathering evidence that I could (or maybe should) just be able to keep on quietly juggling it all. Throughout that time, I remember talking with a friend who was going through a tough stretch, and helping them to strip their situation back to what really mattered to them. Retrospect is a fine thing but back then it felt so clearly obvious and necessary that a life aligned to our truest values is a life well-lived.</p>
+        
+        <p>Yet it wasn't until months (or maybe years) later, right again in the thick of life’s uncertainties, that I realised I was still trying to carry the weight of everything (or “superwomaning” as my husband coined it). Not entirely glamorous but while in the hospital staff bathroom trying to fend off a panic attack, I found myself asking, “Kelly, what actually matters right now, and what is in your control to navigate through this?” Honestly, there has been no more humbling teacher than my own self-reflection.</p>
+        
+        <p>But as it turns out, with 40-odd years of experience in life, there was not as much in my external control as I had been telling myself. These days I try to live my life aligned with my values, backed by healthy boundaries and guided by my own discernment. This reframing has given me a clear internal anchor and direction for how I want to live my life. Things haven’t necessarily gotten simpler, but I’ve found a way to move forward that feels sustainable, authentic, and still allows me to fiercely show up for the parts of my life that truly matter to me.</p>
+        
+        <p>This is the process that I have built UnFold upon.</p>
+      </div>
 
-      <p>That process is what Unfold is built on.</p>
+      <h2 class="accordion-header">My Philosophy <span class="accordion-icon">+</span></h2>
+      <div class="accordion-content">
+        <p>I strongly believe that capability and capacity are not the same thing, and that this distinction is worth sitting with. We can be highly capable and still find ourselves with very little left in the tank, and recognising the difference is often where our inherent “autopilot” can begin to shift.</p>
+        
+        <p>Discernment sits at the centre of how I work. Something I've had to find my own way back to, and something I find myself returning to with the people I work alongside. From what I've seen and experienced, reconnecting with our own values, sense of self, and learning to hold our boundaries where it matters, can make life easier to navigate and more authentically our own. The lens we move through life with can start to shift toward a more empowered and sustainable direction.</p>
+      </div>
 
-      <p>I am an ANZCAL Registered Coach, 200hr RYT and currently completing my 300hr Integrative Somatic Facilitation training. I bring a warm, supportive and confidential space to every session, where a sense of humour is not only welcome but often necessary. I will always meet you where you are, working at your pace and in a way that feels right for you.</p>
+      <h2 class="accordion-header">Working With Me <span class="accordion-icon">+</span></h2>
+      <div class="accordion-content">
+        <p>I know this process can sometimes be challenging, and I do not take the trust and confidentiality required within our shared space lightly. I feel genuinely privileged to work alongside my clients, and I will always do my best to meet you where you are, with compassion, curiosity and where it feels right, a good laugh.</p>
+        
+        <p>What I offer is a space that is calm, nervous-system centred, supportive and shame-free. Somewhere to put it all on the table, free from judgement or agenda, and be supported to sort through the shoulds and the coulds to find a way forward - at your pace.</p>
+      </div>
     </div>
   </div>
 
@@ -543,6 +670,21 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Accordion functionality for mobile
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        if (window.innerWidth <= 992) {
+          header.classList.toggle('active');
+          const content = header.nextElementSibling;
+          if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        }
+      });
+    });
   </script>
 </body>
 
