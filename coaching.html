@@ -303,6 +303,14 @@
       gap: 1.5rem;
     }
 
+    .pricing-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      gap: 1.5rem;
+    }
+
     .price-card {
       background: var(--white);
       border-radius: 20px;
@@ -646,7 +654,8 @@
       }
 
       .pricing-grid,
-      .pricing-grid-2 {
+      .pricing-grid-2,
+      .pricing-grid-3 {
         grid-template-columns: 1fr;
       }
     }
@@ -721,7 +730,7 @@
       </svg>
 
 
-      <div class="pricing-grid-2">
+      <div class="pricing-grid-3">
         <div class="price-card">
           <p class="price-label">3 × 60 min · $165 per session</p>
           <h3 class="price-name">A set of 3 sessions</h3>
@@ -759,6 +768,20 @@
             <li>I offer a check-in between sessions by email or text, if this feels right for you</li>
           </ul>
           <p class="price-note">*Additional sessions can be added at a reduced rate.</p>
+        </div>
+        <div class="price-card" style="border: 2px solid rgba(61, 96, 128, 0.25); background: linear-gradient(135deg, var(--white) 0%, rgba(61, 96, 128, 0.04) 100%);">
+          <p class="price-label" style="color: var(--slate);">1 × 90 min · Koha/Offering rate</p>
+          <h3 class="price-name">Community Spot</h3>
+          <div class="price-amount" style="font-size: 1.4rem; color: var(--slate);">Koha/Offering<sup style="font-size: 16px; margin-left: 1px; color: var(--slate);">*</sup> <span style="font-size: 14px;">NZD</span></div>
+          <p style="font-family: Arial, sans-serif; font-size: 13px; color: var(--ink-light); opacity: 0.8; margin-top: -1rem; margin-bottom: 1.5rem; font-style: italic;">One spot available per quarter</p>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li>I hold one spot per quarter for someone who would genuinely benefit from this work but can't access it at full price right now</li>
+            <li>No proof needed, no awkward conversations, just get in touch honestly and we'll work something out</li>
+            <li>Available to one person per quarter, first come first served</li>
+            <li>If you are another provider and know someone who would benefit from this offering, your referral is welcomed and I will do my best to help</li>
+          </ul>
+          <p class="price-note" style="font-style: italic; margin-top: auto; padding-top: 1.5rem; border-top: 1px solid rgba(44, 31, 20, 0.08);">*This spot exists because I believe this work should be available to everyone who needs it, not just those who can afford it. If that's you, reach out before booking.</p>
         </div>
       </div>
 
