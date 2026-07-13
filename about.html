@@ -465,6 +465,14 @@
       .btn-outline { margin-left: 0; margin-top: 1rem; }
     }
 
+    /* MOBILE BREAK UTILITIES */
+    @media (min-width: 993px) {
+      .mobile-break { display: none; }
+    }
+    @media (max-width: 992px) {
+      .desktop-inline { display: none; }
+    }
+
     /* ACCORDION STYLES */
     .accordion-icon { display: none; }
     @media (min-width: 993px) {
@@ -524,7 +532,7 @@
   <!-- PAGE HEADER + STORY (image floats right, text wraps beside and below) -->
   <div class="page-header reveal">
     <p class="page-tag">A little about me</p>
-    <h1 class="page-title">Oh Hey There, I'm <em>Kelly...</em></h1>
+    <h1 class="page-title">Oh Hey There,<span class="desktop-inline"> </span><br class="mobile-break">I'm <em>Kelly...</em></h1>
     <svg class="wavy-line" viewBox="0 0 100 20"><path d="M0 10 Q 12.5 0, 25 10 T 50 10 T 75 10 T 100 10"/></svg>
 
     <div class="story-inline">
